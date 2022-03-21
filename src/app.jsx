@@ -267,7 +267,7 @@ handelDelete =  del =>{
         Count2={this.state.food.filter((p) => p.isInCart).length}
         />
         <main>
-        <Route path="/home" 
+        <Route path="/Market" 
                         render={
                         (props)=><Home
                         sliders={this.state.home}

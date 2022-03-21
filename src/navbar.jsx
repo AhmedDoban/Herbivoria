@@ -35,11 +35,11 @@ const NavBAr = (props) => {
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
   <Container>
   
-  <Navbar.Brand href="/home" style={{color:'red'}}>MARCKET</Navbar.Brand>
+  <Navbar.Brand href="/Market" style={{color:'red'}}>MARCKET</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
-      <Nav.Link href="/home">HOME</Nav.Link>
+      <Nav.Link href="/Market">HOME</Nav.Link>
       <NavDropdown title="Menu" id="collasible-nav-dropdown">
         <NavDropdown.Item href="/Food" >Food</NavDropdown.Item>
         <NavDropdown.Item href="/Drinks"disabled>Drinks</NavDropdown.Item>
