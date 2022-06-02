@@ -1,6 +1,7 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
 * {
   color: #4e4e4e;
 }
@@ -488,6 +489,9 @@ a:hover {
 @media (max-width: 991px) {
   .navbar- >  ul {
       display: block;
+  }
+  #mylinks{
+    padding-right:150px;
   }
 }
 
@@ -987,9 +991,9 @@ section {
     padding-top: 40%;
   }
   #dataHomeSlider button[type=button]{
-    background-color: #0062d3;
+    background-color: hsl(0, 100%, 46%);
     margin-left:0%;
-    padding:50px;
+    padding:10px;
   }
 }
 

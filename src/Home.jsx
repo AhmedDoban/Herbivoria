@@ -37,7 +37,7 @@ const Home = (props) => {
            <header id="header" class="fixed-top">
             <div class="container d-flex align-items-center justify-content-between">
               <h1 class="logo">
-                <a href="#">GrillHouse</a>
+                <a href="#"><i class="bi bi-list mobile-nav-toggle" onClick={openSlider}>GrillHouse</i></a>
                 </h1>
               <nav id="navbar" class="navbar">
                 <ul id="mylinks">
@@ -49,7 +49,7 @@ const Home = (props) => {
                   <li><Link class="nav-link scrollto" to="/CART">العربة<i className='fas fa-cart-plus'>{cout}</i></Link></li>
                   <li><a class="nav-link scrollto active" href="#">الرئيسية</a></li>
                 </ul>
-                <i class="bi bi-list mobile-nav-toggle" onClick={openSlider}></i>
+                
               </nav>
             </div>
             </header>
@@ -74,7 +74,7 @@ const Home = (props) => {
        className="Swiper"
        >
       {props.Slider.map(
-        p=> <SwiperSlide key={p.id}>
+        p=> <SwiperSlide key={p.id} className="swipderslide">
           <div className='DataSlider'>
            <img src={p.url} className="Swiper" alt='Menu'/>
           </div>
