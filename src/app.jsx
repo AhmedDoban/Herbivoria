@@ -256,7 +256,7 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <Route
-        path="/"
+        path="/Market"
         render={
           (props)=><Home 
              Slider={this.state.Slider}
