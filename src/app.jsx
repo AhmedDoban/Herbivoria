@@ -1,46 +1,18 @@
+import { counter } from '@fortawesome/fontawesome-svg-core';
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import Home from './Home';
-import NavBAr from './navbar';
-import Food from './food';
-import LogIn from './login';
-import SignUP from './signup';
-import Paying from './paying';
+import Home from "./home";
 
-class App extends React.Component  {
+class App extends React.Component {
   state ={
-    home : [
-     {
-          id :1,
-          nameSlider :require('./Img/slider_482.jpg').default,
-     },
-     {
-        id :2,
-        nameSlider :require('./Img/slider2_136.jpg').default,
- }, 
-    ],
-    home1 : [
-      {
-        name: "Parma Burger",
-        price:0,
-        count: 0,
-        isInCart: false,
-        id: 17,
-        imdSrc : require('./Img/food/parma_187.png').default,
-        Details :"140 gr. 100% chicken fillet, mozzarella cheese, mushroom sauce with parmesan, arugula, pesto sauce, pickles, tomato, home sauce, special burger bread, french fries (approx. 140gr).",
-      },
-      {
-        name: "Ring Burger",
-        price:0,
-        count: 0,
-        isInCart: false,
-        id: 18,
-        imdSrc : require('./Img/food/ring_592.png').default,
-        Details :"140 gr. 100% beef, double cheddar cheese, fresh onion slices, crispy onions, Mediterranean Greens, tomatoes, pickles, home sauce, special burger buns, french fries (avg. 140gr)",
-      },
+    Slider : [
+      {id:2,url :require('./Img/slider2.jpg').default}, 
+      {id:1,url :require('./Img/slider1.jpg').default},
+      {id:3,url :require('./Img/slider3.jpg').default},
     ]
     ,  
     food : [
+
       {
         name: " 3 -Burger",
         price:0,
@@ -177,142 +149,133 @@ class App extends React.Component  {
     ]
     ,Drinks :[
       {
+        name: "Coffe",
+        price:15,
+        id: 2,
+        count: 0,
+        isInCart: false,
+        imdSrc :require('./Img/drinks/coffe.JPG').default,
+      },
+      {
+        name: "TEA",
+        price:6,
+        id: 1,
+        count: 0,
+        isInCart: false,
+        imdSrc :require('./Img/drinks/tea.jpg').default,
+      },
+      {
         name: "water",
-        price:0,
+        price:4,
         id: 6,
         count: 0,
         isInCart: false,
-        imdSrc :require('./Img/water.jpg').default,
+        imdSrc :require('./Img/drinks/water.jpg').default,
       },
       {
         name: "Big Cola",
-        price:0,
+        price:15,
 
         count: 0,
         isInCart: false,
         id: 4,
-        imdSrc :require('./Img/BigCola.jpg').default,
+        imdSrc :require('./Img/drinks/BigCola.jpg').default,
       },
       {
         id: 3,
         name: "Cola",
         count: 0,
-        price:0,
+        price:10,
         isInCart: false,
-        imdSrc :require('./Img/Cola.jpg').default,
+        imdSrc :require('./Img/drinks/Cola.jpg').default,
       },
   ],
   Dessert :[
-    {
+  {
+    id: 1,
+    name: "Cake",
+    count: 0,
+    price:25,
+    isInCart: false,
+    imdSrc :require('./Img/Dessert1.jpg').default,
+  },
+  {
     id: 2,
+    name: "Cup Ckae",
+    count: 0,
+    price:30,
+    isInCart: false,
+    imdSrc :require('./Img/Dessert2.jpg').default,
+  },
+  {
+    id: 3,
     name: "Fries",
     count: 0,
-    price:0,
+    price:15,
     isInCart: false,
-    imdSrc :require('./Img/Frise.jpg').default,
+    imdSrc :require('./Img/Dessert3.jpg').default,
+  },
+  {
+    id: 4,
+    name: "Choklet",
+    count: 0,
+    price:50,
+    isInCart: false,
+    imdSrc :require('./Img/Dessert4.jpg').default,
+  },
+  {
+    id: 5,
+    name: "Dessert",
+    count: 0,
+    price:40,
+    isInCart: false,
+    imdSrc :require('./Img/Dessert5.jpg').default,
   },
 ]
   }
+  handelInCartChange=(parime)=>{
+      const food = [...this.state.food];
+      const index=food.indexOf(parime);
+      food[index]={...food[index]};
+      food[index].isInCart=!food[index].isInCart;
 
-  handelInCartChange =(addto)=>{
-    const food = [...this.state.food];
-    const index = food.indexOf(addto);
-    food[index] = { ...food[index] };
-    //Edit
-    food[index].isInCart = !food[index].isInCart;
-    //Set State
-    this.setState({ food });
- }
- increment=(x)=>{
-  const food = [...this.state.food];
-  const index = food.indexOf(x);
-  food[index] = { ...food[index] };
-  //Edit
-  food[index].count++;
-  //Set State
-  this.setState({ food });
- }
- decrement=(x)=>{
+      this.setState({food});
 
-  const food = [...this.state.food];
-  const index = food.indexOf(x);
-  food[index] = { ...food[index] };
-  //Edit
-  if(food[index].count>0){
-    food[index].count--;
-  }
-  //Set State
-  this.setState({ food });
- }
- handelreset =(x)=>{
-  const food = [...this.state.food];
-  const index = food.indexOf(x);
-  food[index] = { ...food[index] };
-  //Edit
-  food[index].count=0;
-  //Set State
-  this.setState({ food });
-}
-handelDelete =  del =>{
-  const food =this.state.food.filter(c=>c.id !== del.id);
-  this.setState({food})
+  } 
+
+  handelInCartChangeFroDrinks=(parime)=>{
+    const Drinks=[...this.state.Drinks];
+    const index=Drinks.indexOf(parime)
+    Drinks[index]={...Drinks[index]};
+    Drinks[index].isInCart=!Drinks[index].isInCart;
+    this.setState({Drinks});
   }
 
 
-  render() { 
+  render(){
     return (
       <React.Fragment>
-        <NavBAr  
-        Count1={this.state.home1.filter((p) => p.isInCart).length}
-        Count2={this.state.food.filter((p) => p.isInCart).length}
+        <Route
+        path="/"
+        render={
+          (props)=><Home 
+             Slider={this.state.Slider}
+             Food={this.state.food}
+             Drinks={this.state.Drinks}
+             Dessert={this.state.Dessert}
+             handle={this.handelInCartChange}
+             handleDrinks={this.handelInCartChangeFroDrinks}
+             count1={this.state.food.filter(p=>p.isInCart).length}
+             count2={this.state.Drinks.filter(p=>p.isInCart).length}
+            {...props}
+          />
+        }
         />
-        <main>
-        <Route path="/Market" 
-                        render={
-                        (props)=><Home
-                        sliders={this.state.home}
-                        home={this.state.home1}
-                        handle={this.handelInCartChange}
-                        {...props}
-                        />
-                    }
-                    />
-        <Route path="/Food"
-                        render={
-                          (props)=><Food
-                          Food={this.state.food}
-                          handle={this.handelInCartChange}
-                          {...props}
-                          />
-                        }/>
-          <Route path="/login"
-                        render={
-                          (props)=><LogIn
-                          {...props}
-                          />
-                        }/>
-          <Route path="/signup"
-                        render={
-                          (props)=><SignUP
-                          {...props}
-                          />
-                        }/>
-            <Route path="/cart" render={
-              (props)=><Paying
-              Food={this.state.food.filter(p=>p.isInCart)}
-              increment={this.increment}
-              decrement={this.decrement}
-              delete={this.handelDelete}
-              reset={this.handelreset}
-              {...props}
-              />
-            }/>
-                        
 
-          </main>
-        </React.Fragment>
-    );
-  } 
+
+      </React.Fragment>
+    )
+
+  }
 }
- 
-export default App;   
+export default App;
