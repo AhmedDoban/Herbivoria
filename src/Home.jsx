@@ -19,8 +19,6 @@ AOS.init();
 
 const Home = (props) => {
   let cout =props.count1+props.count2
-  const [swiperRef, setSwiperRef] = useState(null);
-
   function openSlider (){
     var x = document.getElementById("mylinks");
     if (x.style.display === "block") {
