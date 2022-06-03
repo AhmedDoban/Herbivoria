@@ -1,6 +1,5 @@
-import React, { Component ,useState} from 'react';
+import React, { useState} from 'react';
 import './navbarCSS.css';
-import { Link } from 'react-router-dom';
 import Cart from './cart';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'

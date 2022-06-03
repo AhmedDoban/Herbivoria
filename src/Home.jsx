@@ -1,12 +1,10 @@
-import React, { Component ,useState} from 'react';
+import React, {useState} from 'react';
 import './navbarCSS.css';
 import { Link } from 'react-router-dom';
-import Cart from './cart';
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import 'swiper/components/navigation/navigation.min.css'
 import 'swiper/components/pagination/pagination.min.css'
-import {Button} from 'react-bootstrap';
 import { Navigation, Pagination, Scrollbar, A11y ,EffectFade ,Autoplay} from 'swiper';
 import { SwiperSlide,Swiper } from 'swiper/react';
 import './vendor/bootstrap-icons/bootstrap-icons.css';

@@ -1,5 +1,4 @@
-import { counter } from '@fortawesome/fontawesome-svg-core';
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 import Home from "./home";
 
