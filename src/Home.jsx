@@ -12,8 +12,8 @@ import './vendor/boxicons/css/boxicons.min.css';
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
 import Food from './food.jsx';
-import Drinks from './Drinks.jsx';
-import Dessert from './dessert.jsx';
+import Drinks from './drinks.jsx';
+import Dessert from './Dessert.jsx';
 
 AOS.init();
 
