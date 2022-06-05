@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './navbarCSS.css';
 import { Link } from 'react-router-dom';
 import 'swiper/swiper-bundle.min.css'
@@ -11,8 +11,8 @@ import './vendor/bootstrap-icons/bootstrap-icons.css';
 import './vendor/boxicons/css/boxicons.min.css';
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
-import Food from './food';
-import Drinks from './drinks';
+import Food from './Food';
+import Drinks from './Drinks';
 import Dessert from './Dessert';
 
 AOS.init();
