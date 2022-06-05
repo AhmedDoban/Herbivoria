@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import Home from "./Home";
+import Home from "./Home.jsx";
 
 class App extends React.Component {
   state ={
