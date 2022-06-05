@@ -11,9 +11,9 @@ import './vendor/bootstrap-icons/bootstrap-icons.css';
 import './vendor/boxicons/css/boxicons.min.css';
 import AOS from 'aos'; 
 import 'aos/dist/aos.css';
-import Food from './Food';
-import Drinks from './Drinks';
-import Dessert from './Dessert';
+import Food from './Food.jsx';
+import Drinks from './Drinks.jsx';
+import Dessert from './Dessert.jsx';
 
 AOS.init();
 
