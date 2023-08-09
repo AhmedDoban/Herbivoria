@@ -51,12 +51,11 @@ h6 {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--orange-color);
+  background-color: var(--gray-color);
   width: 20px;
 }
 ::-webkit-scrollbar-thumb {
   background: var(--white-color);
-  box-shadow: 0 4px 30px #0bb3f550;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
