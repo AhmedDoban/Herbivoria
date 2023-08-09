@@ -41,7 +41,7 @@ function Delivery() {
                 data-aos="zoom-in-up"
                 data-aos-duration="1000"
               >
-                <i class="fa-solid fa-people-group" />
+                <i className="fa-solid fa-people-group" />
                 <span>100+ workers</span>
               </div>
               <div
@@ -49,7 +49,7 @@ function Delivery() {
                 data-aos="zoom-in-up"
                 data-aos-duration="1000"
               >
-                <i class="fa-solid fa-utensils" />
+                <i className="fa-solid fa-utensils" />
                 <span>50+ Restaurants</span>
               </div>
             </div>

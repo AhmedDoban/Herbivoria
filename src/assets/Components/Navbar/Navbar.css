@@ -89,6 +89,7 @@
 @media (max-width: 992px) {
   .navbar .container .menu {
     position: fixed;
+    padding: 20px;
     background-color: #f9f9f984;
     backdrop-filter: blur(50px);
     height: 100vh;
@@ -131,13 +132,17 @@
     padding: 10px 20px;
     justify-content: flex-start;
     align-items: center;
+    border-radius: 25px;
+    color: var(--border-color);
   }
   .navbar .container .menu li > a.active::before,
   .navbar .container .menu li > a:hover::before {
     width: 0;
   }
+  .navbar .container .menu li > a:hover,
   .navbar .container .menu li > a.active {
-    background-color: antiquewhite;
+    background-color: var(--red-color);
+    color: var(--white-color);
   }
   .navbar .container .menu li > a > i {
     display: flex;

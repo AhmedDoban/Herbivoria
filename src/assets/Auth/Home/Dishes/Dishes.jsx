@@ -27,7 +27,10 @@ function Dishes() {
                 <img src={dish.img} alt="fries_Salade" />
                 <h5>fries Salade</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button className="btn">Oreder now</button>
+                <button className={dish.isInCart ? "btn active" : "btn"}>
+                  <span> Oreder now</span>
+                  <i className="fa-solid fa-cart-plus" />
+                </button>
               </div>
             ))}
           </div>

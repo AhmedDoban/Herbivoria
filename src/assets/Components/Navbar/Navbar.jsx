@@ -31,19 +31,19 @@ function Navbar() {
             </li>
             <li>
               <NavLink to="/Menu">
-                <i className="fa-solid fa-clipboard-list" />
+                <i className="fa-solid fa-book-open" />
                 Menu
               </NavLink>
             </li>
             <li>
               <NavLink to="/Contact_Us">
-                <i className="fa-solid fa-headset" />
+                <i className="fa-solid fa-envelope" />
                 Contact Us
               </NavLink>
             </li>
             <li>
               <NavLink to="About_Us">
-                <i className="fa-solid fa-circle-info" />
+                <i className="fa-solid fa-users" />
                 About Us
               </NavLink>
             </li>

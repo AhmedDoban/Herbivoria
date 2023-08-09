@@ -6,6 +6,7 @@ import Delivery from "./Delivery/Delivery";
 import Dishes from "./Dishes/Dishes";
 
 function Home(props) {
+  
   return (
     <React.Fragment>
       {/*=========================================================
