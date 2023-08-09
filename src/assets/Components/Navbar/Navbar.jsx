@@ -57,7 +57,7 @@ function Navbar() {
               className="Avatar"
             />
             <Link className="cart-item">
-              <img src={require("../../imgs/cart.png")} alt="Cart" />
+              <img src={require("../../imgs/cart.svg").default} alt="Cart" />
               <div className="count">3</div>
             </Link>
             <i className="fa-solid fa-right-from-bracket logout" />
