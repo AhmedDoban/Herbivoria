@@ -5,6 +5,7 @@
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  z-index: 2;
 }
 .reservation .container {
   display: flex;
@@ -70,15 +71,16 @@
 }
 .reservation .container .left .date .Calender {
   position: absolute;
-  top: 100%;
+  top: 105%;
+  border-radius: 5px;
   right: 0;
-  z-index: 999;
+  opacity: 0;
   box-shadow: var(--main-box-shadow);
-  display: none;
   transition: var(--main-transition);
+  z-index: 9999999;
 }
 .reservation .container .left .date .Calender.active {
-  display: flex;
+  opacity: 1;
 }
 .reservation .container input {
   padding: 15px;

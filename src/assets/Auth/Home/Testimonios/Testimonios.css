@@ -5,6 +5,7 @@
   position: relative;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+  z-index: 1;
 }
 .Testimonios .container .head h1 {
   position: relative;
