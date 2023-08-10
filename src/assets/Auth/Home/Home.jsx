@@ -5,6 +5,7 @@ import Footer from "./../../Components/Footer/Footer";
 import Delivery from "./Delivery/Delivery";
 import Dishes from "./Dishes/Dishes";
 import Reservation from "./Reservation/Reservation";
+import Testimonios from "./Testimonios/Testimonios";
 
 function Home(props) {
   return (
@@ -24,11 +25,15 @@ function Home(props) {
       {/*=========================================================
         # Delivery
        =========================================================*/}
+      <Delivery />
+      {/*=========================================================
+        # Reservation
+       =========================================================*/}
       <Reservation />
       {/*=========================================================
-        # Delivery
+        # Testimonio
        =========================================================*/}
-      <Delivery />
+      <Testimonios />
       {/*=========================================================
         # Footer
       =========================================================*/}
