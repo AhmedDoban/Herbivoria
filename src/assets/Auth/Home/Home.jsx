@@ -4,9 +4,9 @@ import OurFeatures from "./Our Features/OurFeatures";
 import Footer from "./../../Components/Footer/Footer";
 import Delivery from "./Delivery/Delivery";
 import Dishes from "./Dishes/Dishes";
+import Reservation from "./Reservation/Reservation";
 
 function Home(props) {
-  
   return (
     <React.Fragment>
       {/*=========================================================
@@ -24,8 +24,11 @@ function Home(props) {
       {/*=========================================================
         # Delivery
        =========================================================*/}
+      <Reservation />
+      {/*=========================================================
+        # Delivery
+       =========================================================*/}
       <Delivery />
-
       {/*=========================================================
         # Footer
       =========================================================*/}
