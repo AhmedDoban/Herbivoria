@@ -312,7 +312,7 @@
   background-color: var(--red-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
-# menu content right
+# menu content right grid
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .menu-food .container .content .right.Grid {
   position: relative;
@@ -320,6 +320,7 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 15px;
   width: 100%;
+  transition: var(--main-transition);
 }
 @media (max-width: 500px) {
   .menu-food .container .content .right.Grid {
@@ -429,7 +430,6 @@
   font-weight: bold;
   font-size: 14px;
   transition: var(--main-transition);
-
   box-shadow: var(--main-box-shadow-red);
   display: flex;
   justify-content: space-between;
@@ -441,7 +441,96 @@
   background-color: var(--white-color);
   color: var(--red-color);
 }
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# menu content right List
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.menu-food .container .content .right.List {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  transition: var(--main-transition);
+}
+.menu-food .container .content .right.List .food-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px dashed var(--bg-color);
+}
+.menu-food .container .content .right.List .food-box .right {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
+}
 
+.menu-food .container .content .right.List .food-box .right .info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.menu-food .container .content .right.List .food-box .right .info h5 {
+  position: relative;
+  color: var(--red-color);
+  font-weight: 600;
+  font-size: 20px;
+}
+.menu-food .container .content .right.List .food-box .right .info p {
+  position: relative;
+  color: var(--gray-color);
+}
+
+.menu-food .container .content .right.List .food-box .right .price {
+  color: var(--red-color);
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.menu-food .container .content .right.List .food-box .right .btn {
+  width: 150px;
+  border: 0;
+  border-radius: 15px;
+  padding: 8px 14px;
+  cursor: pointer;
+  z-index: 2;
+  font-weight: bold;
+  font-size: 14px;
+  transition: var(--main-transition);
+  box-shadow: var(--main-box-shadow-red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--red-color);
+  color: var(--white-color);
+}
+.menu-food .container .content .right.List .food-box .right .btn.active {
+  background-color: var(--white-color);
+  color: var(--red-color);
+}
+.menu-food .container .content .right.List .food-box img {
+  width: 100px;
+  height: 100px;
+}
+@media (max-width: 992px) {
+  .menu-food .container .content .right.List .food-box .right {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+  }
+  .menu-food .container .content .right.List .food-box .right .info,
+  .menu-food .container .content .right.List .food-box .right .btn {
+    width: 100%;
+  }
+}
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # menu nav-seemore
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/

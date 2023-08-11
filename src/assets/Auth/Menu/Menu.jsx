@@ -15,6 +15,14 @@ function Menu({ HandleISInCart }) {
       return;
     }
     SetSeeMore(SeeMore + 9);
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    };
+    scrollToTop();
   };
   const HandelPreviousNavigation = () => {
     if (SeeMore <= 0 || SeeMore === 9) {
@@ -22,6 +30,14 @@ function Menu({ HandleISInCart }) {
       return;
     }
     SetSeeMore(SeeMore - 9);
+    const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+      });
+    };
+    scrollToTop();
   };
   const HandleFoodType = (type) => {
     SetFoodType(type);
@@ -90,33 +106,73 @@ function Menu({ HandleISInCart }) {
               )
                 .slice(SeeMore - 9, SeeMore)
                 .map((item) => (
-                  <div
-                    className="food-box"
-                    data-aos="zoom-in-up"
-                    data-aos-duration="1000"
-                    key={item.id}
-                  >
-                    <i className="fa-regular fa-heart Favorite-ele" />
-                    <img src={item.img} alt="fries_Salade" />
-                    <h5>
-                      {item.name.length > 10
-                        ? `${item.name.slice(0, 10) + `...`}`
-                        : item.name}
-                    </h5>
-                    <p>
-                      {item.Details.length > 50
-                        ? `${item.Details.slice(0, 50)}...`
-                        : item.Details}
-                    </p>
-                    <div className="price">{item.price}$</div>
-                    <button
-                      className={item.isInCart ? "btn active" : "btn"}
-                      onClick={() => HandleISInCart(item.id)}
-                    >
-                      <span> Oreder now </span>
-                      <i className="fa-solid fa-cart-plus" />
-                    </button>
-                  </div>
+                  <React.Fragment>
+                    {StyleCard === "Grid" ? (
+                      <div
+                        className="food-box"
+                        data-aos="zoom-in-up"
+                        data-aos-duration="1000"
+                        key={item.id}
+                      >
+                        <i className="fa-regular fa-heart Favorite-ele" />
+                        <img src={item.img} alt="fries_Salade" />
+                        <h5>
+                          {item.name.length > 10
+                            ? `${item.name.slice(0, 10) + `...`}`
+                            : item.name}
+                        </h5>
+                        <p>
+                          {item.Details.length > 50
+                            ? `${item.Details.slice(0, 50)}...`
+                            : item.Details}
+                        </p>
+                        <div className="price">{item.price}$</div>
+                        <button
+                          className={item.isInCart ? "btn active" : "btn"}
+                          onClick={() => HandleISInCart(item.id)}
+                        >
+                          <span> Oreder now </span>
+                          <i className="fa-solid fa-cart-plus" />
+                        </button>
+                      </div>
+                    ) : (
+                      <div
+                        className="food-box"
+                        data-aos="zoom-in-up"
+                        data-aos-duration="1000"
+                        key={item.id}
+                      >
+                        <div className="left">
+                          <img src={item.img} alt="fries_Salade" />
+                        </div>
+
+                        <div className="right">
+                          <div className="info">
+                            <h5>
+                              {item.name.length > 10
+                                ? `${item.name.slice(0, 10) + `...`}`
+                                : item.name}
+                            </h5>
+                            <p>
+                              {item.Details.length > 50
+                                ? `${item.Details.slice(0, 50)}...`
+                                : item.Details}
+                            </p>
+                          </div>
+                          <div className="info">
+                            <div className="price">{item.price}$</div>
+                            <button
+                              className={item.isInCart ? "btn active" : "btn"}
+                              onClick={() => HandleISInCart(item.id)}
+                            >
+                              <span> Oreder now </span>
+                              <i className="fa-solid fa-cart-plus" />
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </React.Fragment>
                 ))}
             </div>
           </div>
