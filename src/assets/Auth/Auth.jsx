@@ -33,9 +33,14 @@ function Auth() {
     });
   };
 
-  const HandleISInCart = (index) => {
+  const HandleISInCart = (id) => {
     const Data = [...Food];
-    Data[index] = { ...Data[index], isInCart: !Data[index].isInCart };
+    let indexNumber = -1;
+    Data.map((item, index) => (item.id === id ? (indexNumber = index) : null));
+    Data[indexNumber] = {
+      ...Data[indexNumber],
+      isInCart: !Data[indexNumber].isInCart,
+    };
     SetFood(Data);
   };
 
@@ -45,7 +50,9 @@ function Auth() {
         {/*=========================================================
            # Navbar 
           =========================================================*/}
-        <Navbar />
+        <FoodContext.Provider value={Food}>
+          <Navbar />
+        </FoodContext.Provider>
         {/*=========================================================
            # Pages Routes 
           =========================================================*/}
@@ -57,8 +64,16 @@ function Auth() {
           />
           <FoodContext.Provider value={Food}>
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/Menu" element={<Menu SetFood={SetFood} />} />
+              <Route
+                path="/"
+                element={<Home HandleISInCart={HandleISInCart} />}
+              />
+              <Route
+                path="/Menu"
+                element={
+                  <Menu SetFood={SetFood} HandleISInCart={HandleISInCart} />
+                }
+              />
             </Routes>
           </FoodContext.Provider>
         </div>

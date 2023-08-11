@@ -1,9 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
+import { FoodContext } from "../../Auth/Auth";
 
 function Navbar() {
+  const IsInCartCounter = useContext(FoodContext);
   const [MenuMobileActive, SetMenuMobileActive] = useState(false);
+  const [Count, SetCount] = useState(0);
+  useEffect(() => {
+    let Counter = 0;
+    IsInCartCounter.map((item) => (item.isInCart ? Counter++ : null));
+    SetCount(Counter);
+  }, [IsInCartCounter]);
   return (
     <React.Fragment>
       <div className="navbar">
@@ -58,7 +66,7 @@ function Navbar() {
             />
             <Link className="cart-item">
               <img src={require("../../imgs/cart.svg").default} alt="Cart" />
-              <div className="count">3</div>
+              <div className="count">{Count}</div>
             </Link>
             <i className="fa-solid fa-right-from-bracket logout" />
             <i

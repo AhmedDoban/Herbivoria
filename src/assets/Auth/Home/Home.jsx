@@ -7,7 +7,7 @@ import Dishes from "./Dishes/Dishes";
 import Reservation from "./Reservation/Reservation";
 import Testimonios from "./Testimonios/Testimonios";
 
-function Home() {
+function Home({ HandleISInCart }) {
   return (
     <React.Fragment>
       <div className="home">
@@ -18,7 +18,7 @@ function Home() {
         {/*=========================================================
         # Dishes
        =========================================================*/}
-        <Dishes />
+        <Dishes HandleISInCart={HandleISInCart} />
         {/*=========================================================
         # Our features 
        =========================================================*/}

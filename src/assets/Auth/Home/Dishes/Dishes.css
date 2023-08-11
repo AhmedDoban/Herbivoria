@@ -75,6 +75,20 @@
   font-weight: bold;
   color: var(--red-color);
 }
+.dishes .container .box .price {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 50%;
+  text-align: right;
+  background-color: var(--red-color);
+  font-weight: bold;
+  color: var(--white-color);
+  z-index: 5;
+  padding: 5px 12px;
+  border-radius: 0 5px 5px 0;
+}
+
 .dishes .container .box::before {
   position: absolute;
   content: "";
@@ -151,5 +165,5 @@
 }
 .dishes .container .box .btn.active {
   background-color: var(--white-color);
-  color: var(--main-color);
+  color: var(--red-color);
 }

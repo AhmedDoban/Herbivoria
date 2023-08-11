@@ -1,28 +1,73 @@
-import React, { useState } from "react";
+import React from "react";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import Slider from "@mui/material/Slider";
-import FastfoodIcon from "@mui/icons-material/Fastfood";
 
-function MenuController() {
-  const [Calories, SetCalories] = useState([5, 250]);
-  const [Price, SetPrice] = useState([0, 100]);
-  const [Width_length, SetWidth_length] = useState("16.5-25");
-
-  const HandleChangeCaloriesOrPrice = (value, index, type) => {
-    if (type === "Calories") {
-      const Data = [...Calories];
-      Data[index] = value;
-      SetCalories(Data);
-    } else if (type === "Price") {
-      const Data = [...Price];
-      Data[index] = value;
-      SetPrice(Data);
-    }
-  };
-
+function MenuController({
+  Calories,
+  FoodType,
+  SetFoodType,
+  SetCalories,
+  HandleChangeCaloriesOrPrice,
+  Price,
+  SetWidth_length,
+  Width_length,
+  SetControlFilter,
+  ControlFilter,
+}) {
   return (
     <React.Fragment>
-      <div className="menu-controller">
+      <div
+        className={ControlFilter ? "menu-controller active" : "menu-controller"}
+      >
+        <i
+          className="fa-solid fa-xmark exit-menu-controller"
+          onClick={() => SetControlFilter(!ControlFilter)}
+        />
+        <div className="box">
+          <h3>Food & Drinks</h3>
+          <div className="filter">
+            <i
+              className={
+                FoodType === ""
+                  ? "fa-solid fa-cookie-bite active"
+                  : "fa-solid fa-cookie-bite"
+              }
+              onClick={() => SetFoodType("")}
+            />
+            <i
+              className={
+                FoodType === "Burger"
+                  ? "fa-solid fa-burger active"
+                  : "fa-solid fa-burger"
+              }
+              onClick={() => SetFoodType("Burger")}
+            />
+            <i
+              className={
+                FoodType === "Pizza"
+                  ? "fa-solid fa-pizza-slice active"
+                  : "fa-solid fa-pizza-slice"
+              }
+              onClick={() => SetFoodType("Pizza")}
+            />
+            <i
+              className={
+                FoodType === "Dishes"
+                  ? "fa-solid fa-utensils active"
+                  : "fa-solid fa-utensils"
+              }
+              onClick={() => SetFoodType("Dishes")}
+            />
+            <i
+              className={
+                FoodType === "Drinks"
+                  ? "fa-solid fa-martini-glass active"
+                  : "fa-solid fa-martini-glass"
+              }
+              onClick={() => SetFoodType("Drinks")}
+            />
+          </div>
+        </div>
         <div className="box">
           <h3>Calories</h3>
           <Slider
@@ -130,14 +175,6 @@ function MenuController() {
               <label htmlFor="19.5-28">28"</label>
             </li>
           </ul>
-        </div>
-        <div className="box">
-          <h3>Food & Drinks</h3>
-          <FastfoodIcon />
-          <i className="fa-solid fa-burger" />
-          <i className="fa-solid fa-pizza-slice" />
-          <i className="fa-solid fa-utensils" />
-          <i class="fa-solid fa-martini-glass" />
         </div>
       </div>
     </React.Fragment>
