@@ -5,7 +5,7 @@ import Slider from "@mui/material/Slider";
 function MenuController({
   Calories,
   FoodType,
-  SetFoodType,
+  HandleFoodType,
   SetCalories,
   HandleChangeCaloriesOrPrice,
   Price,
@@ -32,7 +32,7 @@ function MenuController({
                   ? "fa-solid fa-cookie-bite active"
                   : "fa-solid fa-cookie-bite"
               }
-              onClick={() => SetFoodType("")}
+              onClick={() => HandleFoodType("")}
             />
             <i
               className={
@@ -40,7 +40,7 @@ function MenuController({
                   ? "fa-solid fa-burger active"
                   : "fa-solid fa-burger"
               }
-              onClick={() => SetFoodType("Burger")}
+              onClick={() => HandleFoodType("Burger")}
             />
             <i
               className={
@@ -48,7 +48,7 @@ function MenuController({
                   ? "fa-solid fa-pizza-slice active"
                   : "fa-solid fa-pizza-slice"
               }
-              onClick={() => SetFoodType("Pizza")}
+              onClick={() => HandleFoodType("Pizza")}
             />
             <i
               className={
@@ -56,7 +56,7 @@ function MenuController({
                   ? "fa-solid fa-utensils active"
                   : "fa-solid fa-utensils"
               }
-              onClick={() => SetFoodType("Dishes")}
+              onClick={() => HandleFoodType("Dishes")}
             />
             <i
               className={
@@ -64,7 +64,7 @@ function MenuController({
                   ? "fa-solid fa-martini-glass active"
                   : "fa-solid fa-martini-glass"
               }
-              onClick={() => SetFoodType("Drinks")}
+              onClick={() => HandleFoodType("Drinks")}
             />
           </div>
         </div>

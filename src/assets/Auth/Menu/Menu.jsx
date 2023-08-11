@@ -9,6 +9,24 @@ import { FoodContext } from "../Auth";
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
   const [SeeMore, SetSeeMore] = useState(9);
+
+  const HandelNextNavigation = () => {
+    if (FoodData.length < SeeMore) {
+      return;
+    }
+    SetSeeMore(SeeMore + 9);
+  };
+  const HandelPreviousNavigation = () => {
+    if (SeeMore <= 0 || SeeMore === 9) {
+      SetSeeMore(9);
+      return;
+    }
+    SetSeeMore(SeeMore - 9);
+  };
+  const HandleFoodType = (type) => {
+    SetFoodType(type);
+    SetSeeMore(9);
+  };
   const [StyleCard, SetStyleCard] = useState("Grid");
   const [ControlFilter, SetControlFilter] = useState(false);
   const [FoodType, SetFoodType] = useState("");
@@ -55,7 +73,7 @@ function Menu({ HandleISInCart }) {
           <div className="content">
             <MenuController
               FoodType={FoodType}
-              SetFoodType={SetFoodType}
+              HandleFoodType={HandleFoodType}
               Calories={Calories}
               SetCalories={SetCalories}
               Width_length={Width_length}
@@ -70,7 +88,7 @@ function Menu({ HandleISInCart }) {
               {FoodData.filter((Foods) =>
                 FoodType === "" ? Foods : Foods.type === FoodType
               )
-                .slice(0, SeeMore)
+                .slice(SeeMore - 9, SeeMore)
                 .map((item) => (
                   <div
                     className="food-box"
@@ -101,6 +119,14 @@ function Menu({ HandleISInCart }) {
                   </div>
                 ))}
             </div>
+          </div>
+          <div className="nav-seemore">
+            <button className="next" onClick={() => HandelPreviousNavigation()}>
+              previous
+            </button>
+            <button className="previous" onClick={() => HandelNextNavigation()}>
+              Next
+            </button>
           </div>
         </div>
       </div>
