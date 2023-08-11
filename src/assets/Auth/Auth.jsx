@@ -1,9 +1,13 @@
-import React, { useRef } from "react";
+import React, { createContext, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Home/Home";
 import Navbar from "../Components/Navbar/Navbar";
+import Menu from "./Menu/Menu";
+import { FoodData } from "../Data/Food";
 
+export const FoodContext = createContext();
 function Auth() {
+  const [Food, SetFood] = useState(FoodData);
   const back_to_top_btn = useRef();
 
   /*************************************************
@@ -29,6 +33,12 @@ function Auth() {
     });
   };
 
+  const HandleISInCart = (index) => {
+    const Data = [...Food];
+    Data[index] = { ...Data[index], isInCart: !Data[index].isInCart };
+    SetFood(Data);
+  };
+
   return (
     <React.Fragment>
       <div className="auth">
@@ -45,9 +55,12 @@ function Auth() {
             onClick={() => scrollToTop()}
             ref={back_to_top_btn}
           />
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
+          <FoodContext.Provider value={Food}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Menu" element={<Menu SetFood={SetFood} />} />
+            </Routes>
+          </FoodContext.Provider>
         </div>
       </div>
     </React.Fragment>

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Dishes.css";
-import { Dishes_data } from "./../../../Data/Dishes";
+import { FoodContext } from "../../Auth";
+import { Link } from "react-router-dom";
 
 function Dishes() {
+  const DishesData = useContext(FoodContext);
+
   return (
     <React.Fragment>
       <div className="dishes">
@@ -16,23 +19,28 @@ function Dishes() {
             </h1>
           </div>
           <div className="dishes-container">
-            {Dishes_data.slice(0, 8).map((dish, index) => (
-              <div
-                className="box"
-                data-aos="zoom-in-up"
-                data-aos-duration="1000"
-                key={index}
-              >
-                <i className="fa-regular fa-heart Favorite-ele" />
-                <img src={dish.img} alt="fries_Salade" />
-                <h5>fries Salade</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <button className={dish.isInCart ? "btn active" : "btn"}>
-                  <span> Oreder now</span>
-                  <i className="fa-solid fa-cart-plus" />
-                </button>
-              </div>
-            ))}
+            {DishesData.filter((dish) => dish.type === "Dishes")
+              .slice(0, 8)
+              .map((dish) => (
+                <div
+                  className="box"
+                  data-aos="zoom-in-up"
+                  data-aos-duration="1000"
+                  key={dish.id}
+                >
+                  <i className="fa-regular fa-heart Favorite-ele" />
+                  <img src={dish.img} alt="fries_Salade" />
+                  <h5>{dish.name}</h5>
+                  <p>{dish.Details.slice(0, 50)}...</p>
+                  <Link
+                    className={dish.isInCart ? "btn active" : "btn"}
+                    to="/Menu"
+                  >
+                    <span> Oreder now</span>
+                    <i className="fa-solid fa-cart-plus" />
+                  </Link>
+                </div>
+              ))}
           </div>
         </div>
       </div>

@@ -18,8 +18,12 @@ body {
 }
 .pages {
   position: relative;
-  overflow: hidden;
   width: 100%;
+}
+.home {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
 }
 html {
   scroll-behavior: smooth;
