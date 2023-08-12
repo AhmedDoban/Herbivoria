@@ -8,8 +8,8 @@ function Footer() {
     <React.Fragment>
       <Waves styleWave="bottom" />
       <div className="footer">
-        <div className="container" data-aos="zoom-in" data-aos-duration="1000">
-          <div className="box">
+        <div className="container">
+          <div className="box" data-aos="zoom-in" data-aos-duration="1000">
             <div className="head">
               <img src={require("../../imgs/icon.png")} alt="logo" />
               Herbivoria
@@ -25,7 +25,7 @@ function Footer() {
               </div>
             </div>
           </div>
-          <div className="box">
+          <div className="box" data-aos="zoom-in" data-aos-duration="1000">
             <div className="head">Categories</div>
             <div className="content-box">
               <Link>Starters</Link>
@@ -36,7 +36,7 @@ function Footer() {
               <Link>Drinks</Link>
             </div>
           </div>
-          <div className="box">
+          <div className="box" data-aos="zoom-in" data-aos-duration="1000">
             <div className="head">Useful Links</div>
             <div className="content-box">
               <Link>Payment & Tax</Link>
@@ -46,7 +46,7 @@ function Footer() {
               <Link>Discount</Link>
             </div>
           </div>
-          <div className="box">
+          <div className="box" data-aos="zoom-in" data-aos-duration="1000">
             <div className="head">News Letter</div>
             <div className="content-box">
               <p>
