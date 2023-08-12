@@ -23,8 +23,12 @@ function Landing() {
               ever
             </p>
             <div className="actions">
-              <Link className="btn active">View Menu</Link>
-              <Link className="btn">Book a Table</Link>
+              <Link className="btn active" to="/Menu">
+                View Menu
+              </Link>
+              <a className="btn" href="#reservation">
+                Book a Table
+              </a>
             </div>
           </div>
           <div className="right">

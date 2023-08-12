@@ -412,9 +412,8 @@
   border-radius: 12px;
   border: 0;
   cursor: pointer;
-
   transition: var(--main-transition);
-
+  color: var(--gray-color);
   box-shadow: var(--main-box-shadow);
 }
 .menu-food .container .content .right.Grid .food-box .btn.active {
@@ -471,31 +470,33 @@
 }
 
 .menu-food .container .content .right.List .food-box .right .price {
-  color: var(--red-color);
+  color: var(--gray-color);
   font-weight: bold;
   text-align: center;
   letter-spacing: 1px;
 }
 .menu-food .container .content .right.List .food-box .right .btn {
-  width: 150px;
+  width: 35px;
+  height: 35px;
   border: 0;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 8px 14px;
   cursor: pointer;
   z-index: 2;
   font-weight: bold;
   font-size: 14px;
   transition: var(--main-transition);
-  box-shadow: var(--main-box-shadow-red);
+  box-shadow: var(--main-box-shadow);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  background-color: var(--red-color);
-  color: var(--white-color);
+  background-color: var(--bg-color);
+  color: var(--gray-color);
 }
 .menu-food .container .content .right.List .food-box .right .btn.active {
-  background-color: var(--white-color);
-  color: var(--red-color);
+  background-color: var(--red-color);
+  color: var(--white-color);
+  box-shadow: var(--main-box-shadow-red);
 }
 .menu-food .container .content .right.List .food-box img {
   width: 100px;
@@ -508,9 +509,15 @@
     justify-content: center;
     width: 100%;
   }
-  .menu-food .container .content .right.List .food-box .right .info,
-  .menu-food .container .content .right.List .food-box .right .btn {
+  .menu-food .container .content .right.List .food-box .right .info {
     width: 100%;
+  }
+  .menu-food .container .content .right.List .food-box .right .info.actions {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ

@@ -83,7 +83,7 @@
   box-shadow: var(--main-box-shadow-red);
 }
 .landing .container .left .actions .btn:hover {
-  background-color: var(--main-color);
+  background-color: var(--gray-color);
   color: var(--white-color);
   box-shadow: var(--main-box-shadow);
 }

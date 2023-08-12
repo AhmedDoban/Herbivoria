@@ -6,6 +6,7 @@ import MenuController from "./MenuController";
 import "./Menu.css";
 import { FoodContext } from "../Auth";
 import Footer from "../../Components/Footer/Footer";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
@@ -74,7 +75,7 @@ function Menu({ HandleISInCart }) {
             </div>
             <div className="style-card">
               <i
-                class="fa-solid fa-gear Filter-Setting"
+                className="fa-solid fa-gear Filter-Setting"
                 onClick={() => SetControlFilter(!ControlFilter)}
               />
               <WindowIcon
@@ -87,7 +88,7 @@ function Menu({ HandleISInCart }) {
               />
             </div>
           </div>
-          <div className="content" data-aos="fade-up" data-aos-duration="1000">
+          <div className="content">
             <MenuController
               FoodType={FoodType}
               HandleFoodType={HandleFoodType}
@@ -128,7 +129,7 @@ function Menu({ HandleISInCart }) {
                             className={item.isInCart ? "btn active" : "btn"}
                             onClick={() => HandleISInCart(item.id)}
                           >
-                            <i className="fa-solid fa-cart-plus" />
+                            <ShoppingCartOutlinedIcon />
                           </button>
                         </div>
                       </div>
@@ -140,25 +141,16 @@ function Menu({ HandleISInCart }) {
 
                         <div className="right">
                           <div className="info">
-                            <h5>
-                              {item.name.length > 10
-                                ? `${item.name.slice(0, 10) + `...`}`
-                                : item.name}
-                            </h5>
-                            <p>
-                              {item.Details.length > 50
-                                ? `${item.Details.slice(0, 50)}...`
-                                : item.Details}
-                            </p>
+                            <h5>{item.name}</h5>
+                            <p>{item.Details}</p>
                           </div>
-                          <div className="info">
+                          <div className="info actions">
                             <div className="price">{item.price}$</div>
                             <button
                               className={item.isInCart ? "btn active" : "btn"}
                               onClick={() => HandleISInCart(item.id)}
                             >
-                              <span> Oreder now </span>
-                              <i className="fa-solid fa-cart-plus" />
+                              <ShoppingCartOutlinedIcon />
                             </button>
                           </div>
                         </div>

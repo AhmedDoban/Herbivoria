@@ -837,7 +837,7 @@ export const FoodData = [
   },
   {
     id: 61,
-    name: "Biscuits_dessert",
+    name: "Biscuits ]essert",
     img: require("../imgs/Dishes/Biscuits_dessert.png"),
     cal: "146  ",
     price: 200,

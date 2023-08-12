@@ -9,7 +9,7 @@ function Reservation() {
   const [Active, SetACtive] = useState(false);
   return (
     <React.Fragment>
-      <div className="reservation">
+      <div className="reservation" id="reservation">
         <div className="container" data-aos="fade-up" data-aos-duration="1000">
           <div className="head">
             <p>reservation</p>
