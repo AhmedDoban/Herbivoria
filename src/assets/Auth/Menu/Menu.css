@@ -321,6 +321,7 @@
   gap: 15px;
   width: 100%;
   transition: var(--main-transition);
+  overflow: hidden;
 }
 @media (max-width: 500px) {
   .menu-food .container .content .right.Grid {
@@ -451,6 +452,7 @@
   gap: 15px;
   width: 100%;
   transition: var(--main-transition);
+  overflow: hidden;
 }
 .menu-food .container .content .right.List .food-box {
   position: relative;

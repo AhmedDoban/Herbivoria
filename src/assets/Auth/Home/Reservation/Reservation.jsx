@@ -10,16 +10,12 @@ function Reservation() {
   return (
     <React.Fragment>
       <div className="reservation">
-        <div className="container">
-          <div className="head" data-aos="fade-up" data-aos-duration="1000">
+        <div className="container" data-aos="fade-up" data-aos-duration="1000">
+          <div className="head">
             <p>reservation</p>
             <h1>Book your table</h1>
           </div>
-          <div
-            className="form-container"
-            data-aos="zoom-in-up"
-            data-aos-duration="1000"
-          >
+          <div className="form-container">
             <div className="left">
               <input type="text" placeholder="Enter your Name" />
               <div className="date">

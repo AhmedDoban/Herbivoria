@@ -8,17 +8,13 @@ function Footer() {
     <React.Fragment>
       <Waves styleWave="bottom" />
       <div className="footer">
-        <div className="container">
+        <div className="container" data-aos="fade-up" data-aos-duration="1000">
           <div className="box">
-            <div className="head" data-aos="fade-up" data-aos-duration="1000">
+            <div className="head">
               <img src={require("../../imgs/icon.png")} alt="logo" />
               Herbivoria
             </div>
-            <div
-              className="content-box"
-              data-aos="zoom-in-up"
-              data-aos-duration="1000"
-            >
+            <div className="content-box">
               <a href="tel:+20 1111111111" className="contact">
                 <i className="fa-solid fa-phone" />
                 <span>+20 1111111111</span>
@@ -30,14 +26,8 @@ function Footer() {
             </div>
           </div>
           <div className="box">
-            <div className="head" data-aos="fade-up" data-aos-duration="1000">
-              Categories
-            </div>
-            <div
-              className="content-box"
-              data-aos="zoom-in-up"
-              data-aos-duration="1000"
-            >
+            <div className="head">Categories</div>
+            <div className="content-box">
               <Link>Starters</Link>
               <Link>Salads</Link>
               <Link>combos</Link>
@@ -47,14 +37,8 @@ function Footer() {
             </div>
           </div>
           <div className="box">
-            <div className="head" data-aos="fade-up" data-aos-duration="1000">
-              Useful Links
-            </div>
-            <div
-              className="content-box"
-              data-aos="zoom-in-up"
-              data-aos-duration="1000"
-            >
+            <div className="head">Useful Links</div>
+            <div className="content-box">
               <Link>Payment & Tax</Link>
               <Link>Teams of service</Link>
               <Link>My account</Link>
@@ -63,14 +47,8 @@ function Footer() {
             </div>
           </div>
           <div className="box">
-            <div className="head" data-aos="fade-up" data-aos-duration="1000">
-              News Letter
-            </div>
-            <div
-              className="content-box"
-              data-aos="zoom-in-up"
-              data-aos-duration="1000"
-            >
+            <div className="head">News Letter</div>
+            <div className="content-box">
               <p>
                 Get now Free 20% dicount for all Proudacts on your first order .
               </p>

@@ -5,19 +5,11 @@ function OurFeatures() {
   return (
     <React.Fragment>
       <div className="OurFeatures">
-        <div className="container">
-          <p data-aos="fade-up" data-aos-duration="1000">
-            Our Features
-          </p>
-          <h1 data-aos="fade-up" data-aos-duration="1000">
-            Why people Choose us ?
-          </h1>
+        <div className="container" data-aos="fade-up" data-aos-duration="1000">
+          <p>Our Features</p>
+          <h1>Why people Choose us ?</h1>
           <div className="OurFeatures-container">
-            <div
-              className="box active"
-              data-aos="zoom-in-up"
-              data-aos-duration="1000"
-            >
+            <div className="box active">
               <i className="fa-solid fa-award" />
               <h5>Best in the town</h5>
               <p>
@@ -25,7 +17,7 @@ function OurFeatures() {
                 Voluptatum necessitatibus accusamus itaque facilis illo maxime.
               </p>
             </div>
-            <div className="box" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div className="box">
               <i className="fa-solid fa-truck" />
               <h5>Faster Delivery </h5>
               <p>
@@ -33,7 +25,7 @@ function OurFeatures() {
                 Voluptatum necessitatibus accusamus itaque facilis illo maxime.
               </p>
             </div>
-            <div className="box" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div className="box">
               <i className="fa-solid fa-mobile" />
               <h5>Easy to order</h5>
               <p>
