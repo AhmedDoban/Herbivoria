@@ -17,10 +17,10 @@ function Navbar() {
       <div className="navbar">
         <div className="container">
           {/********** Start Logo Container *************/}
-          <div className="logo">
+          <Link className="logo" to="/">
             <img src={require("../../imgs/icon.png")} alt="logo" />
             <h1>Herbivoria</h1>
-          </div>
+          </Link>
           {/********** End Logo Container *************/}
 
           {/********** Start Menu Links*************/}
