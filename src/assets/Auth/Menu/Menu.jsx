@@ -9,6 +9,7 @@ import Footer from "../../Components/Footer/Footer";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Recommendation from "../../Components/Recommendation/Recommendation";
+import Testimonios from "../Home/Testimonios/Testimonios";
 
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
@@ -199,6 +200,9 @@ function Menu({ HandleISInCart }) {
       </div>
       {/************************** Recommendation *****************************/}
       <Recommendation HandleISInCart={HandleISInCart} min="58" max="68" />
+      {/************************** End Recommendation *****************************/}
+      {/************************** Recommendation *****************************/}
+      <Testimonios />
       {/************************** End Recommendation *****************************/}
       {/************************** Footer *****************************/}
       <Footer />
