@@ -5,7 +5,7 @@ function OurFeatures() {
   return (
     <React.Fragment>
       <div className="OurFeatures">
-        <div className="container" data-aos="fade-up" data-aos-duration="1000">
+        <div className="container" data-aos="fade-up">
           <p>Our Features</p>
           <h1>Why people Choose us ?</h1>
           <div className="OurFeatures-container">

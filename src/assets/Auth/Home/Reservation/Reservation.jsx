@@ -10,7 +10,7 @@ function Reservation() {
   return (
     <React.Fragment>
       <div className="reservation" id="reservation">
-        <div className="container" data-aos="fade-up" data-aos-duration="1000">
+        <div className="container" data-aos="fade-up">
           <div className="head">
             <p>reservation</p>
             <h1>Book your table</h1>

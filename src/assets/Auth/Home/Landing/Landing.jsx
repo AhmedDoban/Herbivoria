@@ -7,11 +7,7 @@ function Landing() {
   return (
     <React.Fragment>
       <div className="landing">
-        <div
-          className="container"
-          data-aos="zoom-in-up"
-          data-aos-duration="1000"
-        >
+        <div className="container" data-aos="zoom-in-up">
           <div className="left">
             <h1>
               Herbivoria

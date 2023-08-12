@@ -8,7 +8,7 @@ function Dishes({ HandleISInCart }) {
   return (
     <React.Fragment>
       <div className="dishes">
-        <div className="container" data-aos="fade-up" data-aos-duration="1000">
+        <div className="container" data-aos="fade-up">
           <div className="head">
             <p>our dishes</p>
             <h1>most trending dishes</h1>

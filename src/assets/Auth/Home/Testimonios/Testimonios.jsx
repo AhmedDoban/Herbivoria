@@ -10,7 +10,7 @@ function Testimonios() {
     <React.Fragment>
       <div className="Testimonios">
         <div className="container">
-          <div className="head" data-aos="fade-up" data-aos-duration="1000">
+          <div className="head" data-aos="fade-up">
             <p>Testimonios</p>
             <h1>People Said About Us</h1>
           </div>
@@ -20,7 +20,7 @@ function Testimonios() {
             interval={6000}
             className="aws-btn"
           >
-            <div className="box" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div className="box" data-aos="zoom-in-up">
               <img
                 src={require("../../../imgs/Testimonios/Client1.jpeg")}
                 alt="Brandi J. Mims"
@@ -33,7 +33,7 @@ function Testimonios() {
                 blanditiis neque rem natus dolorum vitae reiciendis ipsum cum?
               </p>
             </div>
-            <div className="box" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div className="box" data-aos="zoom-in-up">
               <img
                 src={require("../../../imgs/Testimonios/Client2.jpeg")}
                 alt="Paula J. Bouchard"
@@ -46,7 +46,7 @@ function Testimonios() {
                 blanditiis neque rem natus dolorum vitae reiciendis ipsum cum?
               </p>
             </div>
-            <div className="box" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div className="box" data-aos="zoom-in-up">
               <img
                 src={require("../../../imgs/Testimonios/Client3.jpeg")}
                 alt="Latina D. Jacob
@@ -60,7 +60,7 @@ function Testimonios() {
                 blanditiis neque rem natus dolorum vitae reiciendis ipsum cum?
               </p>
             </div>
-            <div className="box" data-aos="zoom-in-up" data-aos-duration="1000">
+            <div className="box" data-aos="zoom-in-up">
               <img
                 src={require("../../../imgs/Testimonios/Client4.jpeg")}
                 alt="Kimberlee B. Mullins
