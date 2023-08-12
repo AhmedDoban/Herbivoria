@@ -8,6 +8,7 @@ import { FoodContext } from "../Auth";
 import Footer from "../../Components/Footer/Footer";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Player } from "@lottiefiles/react-lottie-player";
+import Recommendation from "../../Components/Recommendation/Recommendation";
 
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
@@ -117,7 +118,7 @@ function Menu({ HandleISInCart }) {
                       {StyleCard === "Grid" ? (
                         <div className="food-box" key={item.id}>
                           <i className="fa-regular fa-heart Favorite-ele" />
-                          <img src={item.img} alt="fries_Salade" />
+                          <img src={item.img} alt={item.name} />
                           <h5>
                             {item.name.length > 10
                               ? `${item.name.slice(0, 10) + `...`}`
@@ -141,7 +142,7 @@ function Menu({ HandleISInCart }) {
                       ) : (
                         <div className="food-box" key={item.id}>
                           <div className="left">
-                            <img src={item.img} alt="fries_Salade" />
+                            <img src={item.img} alt={item.name} />
                           </div>
 
                           <div className="right">
@@ -196,8 +197,12 @@ function Menu({ HandleISInCart }) {
           ) : null}
         </div>
       </div>
-
+      {/************************** Recommendation *****************************/}
+      <Recommendation HandleISInCart={HandleISInCart} min="58" max="68" />
+      {/************************** End Recommendation *****************************/}
+      {/************************** Footer *****************************/}
       <Footer />
+      {/************************** End Footer *****************************/}
     </React.Fragment>
   );
 }

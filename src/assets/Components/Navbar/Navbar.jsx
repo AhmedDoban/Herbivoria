@@ -12,12 +12,21 @@ function Navbar() {
     IsInCartCounter.map((item) => (item.isInCart ? Counter++ : null));
     SetCount(Counter);
   }, [IsInCartCounter]);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <React.Fragment>
       <div className="navbar">
         <div className="container">
           {/********** Start Logo Container *************/}
-          <Link className="logo" to="/">
+          <Link className="logo" to="/" onClick={() => scrollToTop()}>
             <img src={require("../../imgs/icon.png")} alt="logo" />
             <h1>Herbivoria</h1>
           </Link>
@@ -32,25 +41,25 @@ function Navbar() {
               <i className="fa-solid fa-xmark" />
             </div>
             <li>
-              <NavLink to="">
+              <NavLink to="" onClick={() => scrollToTop()}>
                 <i className="fa-solid fa-house" />
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/Menu">
+              <NavLink to="/Menu" onClick={() => scrollToTop()}>
                 <i className="fa-solid fa-book-open" />
                 Menu
               </NavLink>
             </li>
             <li>
-              <NavLink to="/Contact_Us">
+              <NavLink to="/Contact_Us" onClick={() => scrollToTop()}>
                 <i className="fa-solid fa-envelope" />
                 Contact Us
               </NavLink>
             </li>
             <li>
-              <NavLink to="About_Us">
+              <NavLink to="About_Us" onClick={() => scrollToTop()}>
                 <i className="fa-solid fa-users" />
                 About Us
               </NavLink>

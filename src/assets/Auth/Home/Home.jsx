@@ -6,6 +6,7 @@ import Delivery from "./Delivery/Delivery";
 import Dishes from "./Dishes/Dishes";
 import Reservation from "./Reservation/Reservation";
 import Testimonios from "./Testimonios/Testimonios";
+import Recommendation from "../../Components/Recommendation/Recommendation";
 
 function Home({ HandleISInCart }) {
   return (
@@ -19,6 +20,10 @@ function Home({ HandleISInCart }) {
         # Dishes
        =========================================================*/}
         <Dishes HandleISInCart={HandleISInCart} />
+        {/*=========================================================
+         # Recommendation
+        =========================================================*/}
+        <Recommendation HandleISInCart={HandleISInCart} min="0" max="8" />
         {/*=========================================================
         # Our features 
        =========================================================*/}
