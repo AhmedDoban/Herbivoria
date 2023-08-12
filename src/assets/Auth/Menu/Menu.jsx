@@ -7,6 +7,7 @@ import "./Menu.css";
 import { FoodContext } from "../Auth";
 import Footer from "../../Components/Footer/Footer";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { Player } from "@lottiefiles/react-lottie-player";
 
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
@@ -102,50 +103,33 @@ function Menu({ HandleISInCart }) {
               ControlFilter={ControlFilter}
               SetControlFilter={SetControlFilter}
             />
-            <div className={`right ${StyleCard}`}>
-              {FoodData.filter((Foods) =>
-                FoodType === "" ? Foods : Foods.type === FoodType
-              )
-                .slice(SeeMore - 9, SeeMore)
-                .map((item) => (
-                  <React.Fragment>
-                    {StyleCard === "Grid" ? (
-                      <div className="food-box" key={item.id}>
-                        <i className="fa-regular fa-heart Favorite-ele" />
-                        <img src={item.img} alt="fries_Salade" />
-                        <h5>
-                          {item.name.length > 10
-                            ? `${item.name.slice(0, 10) + `...`}`
-                            : item.name}
-                        </h5>
-                        <p>
-                          {item.Details.length > 50
-                            ? `${item.Details.slice(0, 50)}...`
-                            : item.Details}
-                        </p>
-                        <div className="actions">
-                          <div className="price">{item.price} $</div>
-                          <button
-                            className={item.isInCart ? "btn active" : "btn"}
-                            onClick={() => HandleISInCart(item.id)}
-                          >
-                            <ShoppingCartOutlinedIcon />
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="food-box" key={item.id}>
-                        <div className="left">
-                          <img src={item.img} alt="fries_Salade" />
-                        </div>
 
-                        <div className="right">
-                          <div className="info">
-                            <h5>{item.name}</h5>
-                            <p>{item.Details}</p>
-                          </div>
-                          <div className="info actions">
-                            <div className="price">{item.price}$</div>
+            {FoodData.filter((Foods) =>
+              FoodType === "" ? Foods : Foods.type === FoodType
+            ).length > 0 ? (
+              <div className={`right ${StyleCard}`}>
+                {FoodData.filter((Foods) =>
+                  FoodType === "" ? Foods : Foods.type === FoodType
+                )
+                  .slice(SeeMore - 9, SeeMore)
+                  .map((item) => (
+                    <React.Fragment>
+                      {StyleCard === "Grid" ? (
+                        <div className="food-box" key={item.id}>
+                          <i className="fa-regular fa-heart Favorite-ele" />
+                          <img src={item.img} alt="fries_Salade" />
+                          <h5>
+                            {item.name.length > 10
+                              ? `${item.name.slice(0, 10) + `...`}`
+                              : item.name}
+                          </h5>
+                          <p>
+                            {item.Details.length > 50
+                              ? `${item.Details.slice(0, 50)}...`
+                              : item.Details}
+                          </p>
+                          <div className="actions">
+                            <div className="price">{item.price} $</div>
                             <button
                               className={item.isInCart ? "btn active" : "btn"}
                               onClick={() => HandleISInCart(item.id)}
@@ -154,20 +138,62 @@ function Menu({ HandleISInCart }) {
                             </button>
                           </div>
                         </div>
-                      </div>
-                    )}
-                  </React.Fragment>
-                ))}
+                      ) : (
+                        <div className="food-box" key={item.id}>
+                          <div className="left">
+                            <img src={item.img} alt="fries_Salade" />
+                          </div>
+
+                          <div className="right">
+                            <div className="info">
+                              <h5>{item.name}</h5>
+                              <p>{item.Details}</p>
+                            </div>
+                            <div className="info actions">
+                              <div className="price">{item.price}$</div>
+                              <button
+                                className={item.isInCart ? "btn active" : "btn"}
+                                onClick={() => HandleISInCart(item.id)}
+                              >
+                                <ShoppingCartOutlinedIcon />
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </React.Fragment>
+                  ))}
+              </div>
+            ) : (
+              <div className="not-found">
+                <Player
+                  autoplay
+                  loop
+                  src="https://lottie.host/70bf22c7-e625-4c64-9f13-157293c9d026/HXnG9E9Bhf.json"
+                  style={{ height: "300px", width: "300px" }}
+                />
+                <p>Sorry We Couldn't Find what are searching for</p>
+              </div>
+            )}
+          </div>
+          {FoodData.filter((Foods) =>
+            FoodType === "" ? Foods : Foods.type === FoodType
+          ).length > 0 ? (
+            <div className="nav-seemore">
+              <button
+                className="next"
+                onClick={() => HandelPreviousNavigation()}
+              >
+                <i className="fa-solid fa-angle-left"></i>
+              </button>
+              <button
+                className="previous"
+                onClick={() => HandelNextNavigation()}
+              >
+                <i className="fa-solid fa-angle-right"></i>
+              </button>
             </div>
-          </div>
-          <div className="nav-seemore">
-            <button className="next" onClick={() => HandelPreviousNavigation()}>
-              previous
-            </button>
-            <button className="previous" onClick={() => HandelNextNavigation()}>
-              Next
-            </button>
-          </div>
+          ) : null}
         </div>
       </div>
 

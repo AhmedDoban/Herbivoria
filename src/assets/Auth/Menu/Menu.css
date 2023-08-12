@@ -322,7 +322,9 @@
   width: 100%;
   transition: var(--main-transition);
   overflow: hidden;
+  animation: up_box 0.5s ease-in-out alternate;
 }
+
 @media (max-width: 500px) {
   .menu-food .container .content .right.Grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -432,6 +434,15 @@
   width: 100%;
   transition: var(--main-transition);
   overflow: hidden;
+  animation: up_box 0.5s ease-in-out alternate;
+}
+@keyframes up_box {
+  from {
+    transform: translateY(100px);
+  }
+  to {
+    transform: translateY(0px);
+  }
 }
 .menu-food .container .content .right.List .food-box {
   position: relative;
@@ -467,6 +478,8 @@
 .menu-food .container .content .right.List .food-box .right .info p {
   position: relative;
   color: var(--gray-color);
+  width: 80%;
+  line-height: 1.7;
 }
 
 .menu-food .container .content .right.List .food-box .right .price {
@@ -512,6 +525,10 @@
   .menu-food .container .content .right.List .food-box .right .info {
     width: 100%;
   }
+  .menu-food .container .content .right.List .food-box .right .info p {
+    width: 100%;
+    line-height: 1.3;
+  }
   .menu-food .container .content .right.List .food-box .right .info.actions {
     position: relative;
     display: flex;
@@ -526,15 +543,34 @@
 .menu-food .container .nav-seemore {
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 15px;
   align-items: center;
 }
 .menu-food .container .nav-seemore button {
-  padding: 4px 12px;
-  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
   border: 0;
   transition: var(--main-transition);
   cursor: pointer;
   color: var(--white-color);
   background-color: var(--red-color);
+  box-shadow: var(--main-box-shadow-red);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# menu Not Founded
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.menu-food .content .not-found {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
 }

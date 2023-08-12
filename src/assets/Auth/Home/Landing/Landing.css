@@ -74,7 +74,8 @@
   text-transform: capitalize;
   transition: var(--main-transition);
   cursor: pointer;
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 16%);
+  box-shadow: var(--main-box-shadow);
+  color: var(--border-color);
 }
 
 .landing .container .left .actions .btn.active {
