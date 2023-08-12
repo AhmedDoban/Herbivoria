@@ -51,7 +51,7 @@ function Recommendation({ HandleISInCart, min, max }) {
             onSwiper={(s) => {
               SetSlider(s);
             }}
-            spaceBetween={10}
+            spaceBetween={5}
           >
             {RecommendationData.slice(min, max).map((item) => (
               <SwiperSlide key={item.id}>

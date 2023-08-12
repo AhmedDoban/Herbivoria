@@ -343,6 +343,7 @@
   padding: 20px;
   border-radius: 15px;
   border: 3px dashed var(--bg-color);
+  height: 300px;
 }
 .menu-food .container .content .right.Grid .food-box .Favorite-ele {
   position: absolute;
@@ -361,7 +362,8 @@
 
 .menu-food .container .content .right.Grid .food-box img {
   position: relative;
-  width: 100%;
+  width: 150px;
+  max-width: 100%;
   height: 100%;
   object-fit: contain;
   z-index: 2;
