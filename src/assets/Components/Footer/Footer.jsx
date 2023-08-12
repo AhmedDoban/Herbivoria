@@ -8,7 +8,11 @@ function Footer() {
     <React.Fragment>
       <Waves styleWave="bottom" />
       <div className="footer">
-        <div className="container" data-aos="fade-up" data-aos-duration="1000">
+        <div
+          className="container"
+          data-aos="fade-down"
+          data-aos-duration="1000"
+        >
           <div className="box">
             <div className="head">
               <img src={require("../../imgs/icon.png")} alt="logo" />

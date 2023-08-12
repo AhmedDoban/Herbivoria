@@ -325,26 +325,22 @@
 }
 @media (max-width: 500px) {
   .menu-food .container .content .right.Grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 5px;
   }
 }
 
 .menu-food .container .content .right.Grid .food-box {
   position: relative;
-  padding: 15px;
-  border-radius: 15px;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  width: fit-content;
-  align-self: center;
   text-align: center;
-  background-color: var(--bg-color);
-  overflow: hidden;
-  width: 100%;
-  box-shadow: var(--main-box-shadow);
+  padding: 20px;
+  border-radius: 15px;
+  border: 3px dashed var(--bg-color);
 }
 .menu-food .container .content .right.Grid .food-box .Favorite-ele {
   position: absolute;
@@ -360,32 +356,7 @@
   font-weight: bold;
   color: var(--red-color);
 }
-.menu-food .container .content .right.Grid .food-box::before {
-  position: absolute;
-  content: "";
-  width: 350px;
-  height: 350px;
-  background-image: url("../../imgs/salt.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  top: -50px;
-  left: -50px;
-  z-index: 1;
-  transform: rotateY(180deg) translateY(-50px);
-}
-.menu-food .container .content .right.Grid .food-box::after {
-  position: absolute;
-  content: "";
-  width: 350px;
-  height: 350px;
-  background-image: url("../../imgs/salt.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  bottom: -50px;
-  right: -50px;
-  z-index: 1;
-  transform: rotateY(150deg) translateX(-150px);
-}
+
 .menu-food .container .content .right.Grid .food-box img {
   position: relative;
   width: 100%;
@@ -399,48 +370,57 @@
   position: relative;
   z-index: 2;
   color: var(--red-color);
+  font-size: 20px;
   transition: var(--main-transition);
-  font-size: 25px;
 }
 
 .menu-food .container .content .right.Grid .food-box p {
   color: var(--gray-color);
   z-index: 2;
-}
-.menu-food .container .content .right.Grid .food-box .price {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  width: 50%;
-  text-align: right;
-  background-color: var(--red-color);
-  font-weight: bold;
-  color: var(--white-color);
-  z-index: 5;
-  padding: 5px 12px;
-  border-radius: 0 5px 5px 0;
-}
-
-.menu-food .container .content .right.Grid .food-box .btn {
-  width: 100%;
-  border: 0;
-  border-radius: 15px;
-  padding: 8px 14px;
-  cursor: pointer;
-  z-index: 2;
-  font-weight: bold;
   font-size: 14px;
   transition: var(--main-transition);
-  box-shadow: var(--main-box-shadow-red);
+}
+@media (max-width: 500px) {
+  .menu-food .container .content .right.Grid .food-box h5 {
+    font-size: 16px;
+  }
+  .menu-food .container .content .right.Grid .food-box p {
+    font-size: 12px;
+  }
+}
+
+.menu-food .container .content .right.Grid .food-box .actions {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--red-color);
-  color: var(--white-color);
+  width: 100%;
+}
+.menu-food .container .content .right.Grid .food-box .actions .price {
+  position: relative;
+  color: var(--gray-color);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.menu-food .container .content .right.Grid .food-box .btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  border: 0;
+  cursor: pointer;
+
+  transition: var(--main-transition);
+
+  box-shadow: var(--main-box-shadow);
 }
 .menu-food .container .content .right.Grid .food-box .btn.active {
-  background-color: var(--white-color);
-  color: var(--red-color);
+  background-color: var(--red-color);
+  color: var(--white-color);
+  box-shadow: var(--main-box-shadow-red);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # menu content right List

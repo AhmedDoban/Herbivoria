@@ -5,6 +5,7 @@ import ReorderIcon from "@mui/icons-material/Reorder";
 import MenuController from "./MenuController";
 import "./Menu.css";
 import { FoodContext } from "../Auth";
+import Footer from "../../Components/Footer/Footer";
 
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
@@ -86,7 +87,7 @@ function Menu({ HandleISInCart }) {
               />
             </div>
           </div>
-          <div className="content">
+          <div className="content" data-aos="fade-up" data-aos-duration="1000">
             <MenuController
               FoodType={FoodType}
               HandleFoodType={HandleFoodType}
@@ -108,12 +109,7 @@ function Menu({ HandleISInCart }) {
                 .map((item) => (
                   <React.Fragment>
                     {StyleCard === "Grid" ? (
-                      <div
-                        className="food-box"
-                        data-aos="zoom-in-up"
-                        data-aos-duration="1000"
-                        key={item.id}
-                      >
+                      <div className="food-box" key={item.id}>
                         <i className="fa-regular fa-heart Favorite-ele" />
                         <img src={item.img} alt="fries_Salade" />
                         <h5>
@@ -126,22 +122,18 @@ function Menu({ HandleISInCart }) {
                             ? `${item.Details.slice(0, 50)}...`
                             : item.Details}
                         </p>
-                        <div className="price">{item.price}$</div>
-                        <button
-                          className={item.isInCart ? "btn active" : "btn"}
-                          onClick={() => HandleISInCart(item.id)}
-                        >
-                          <span> Oreder now </span>
-                          <i className="fa-solid fa-cart-plus" />
-                        </button>
+                        <div className="actions">
+                          <div className="price">{item.price} $</div>
+                          <button
+                            className={item.isInCart ? "btn active" : "btn"}
+                            onClick={() => HandleISInCart(item.id)}
+                          >
+                            <i className="fa-solid fa-cart-plus" />
+                          </button>
+                        </div>
                       </div>
                     ) : (
-                      <div
-                        className="food-box"
-                        data-aos="zoom-in-up"
-                        data-aos-duration="1000"
-                        key={item.id}
-                      >
+                      <div className="food-box" key={item.id}>
                         <div className="left">
                           <img src={item.img} alt="fries_Salade" />
                         </div>
@@ -186,6 +178,8 @@ function Menu({ HandleISInCart }) {
           </div>
         </div>
       </div>
+
+      <Footer />
     </React.Fragment>
   );
 }

@@ -7,8 +7,12 @@ function Landing() {
   return (
     <React.Fragment>
       <div className="landing">
-        <div className="container">
-          <div className="left" data-aos="zoom-in-up" data-aos-duration="1000">
+        <div
+          className="container"
+          data-aos="zoom-in-up"
+          data-aos-duration="1000"
+        >
+          <div className="left">
             <h1>
               Herbivoria
               <p>For Fast Foods</p>
@@ -23,7 +27,7 @@ function Landing() {
               <Link className="btn">Book a Table</Link>
             </div>
           </div>
-          <div className="right" data-aos="zoom-in-up" data-aos-duration="1000">
+          <div className="right">
             <img src={require("../../../imgs/Burger_Image.png")} alt="" />
           </div>
         </div>
