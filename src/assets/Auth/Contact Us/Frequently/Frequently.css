@@ -1,0 +1,136 @@
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Frequently
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Frequently {
+  position: relative;
+
+  padding-bottom: var(--main-padding-bottom);
+  width: 100%;
+}
+.Frequently .container {
+  position: relative;
+  border-top: 1px solid var(--bg-color);
+  padding-top: var(--main-padding-top);
+}
+.Frequently .container .head h1 {
+  position: relative;
+  margin: 0 0 30px 0;
+  color: var(--red-color);
+  text-shadow: var(--main-text-shadow);
+}
+.Frequently .container .head p {
+  position: relative;
+  font-weight: bold;
+  color: var(--gray-color);
+  letter-spacing: 1px;
+  padding: 10px 0;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# Frequently Question-box
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.Frequently .content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.Frequently .Question-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-color);
+  padding: 20px;
+  border-radius: 12px;
+  transition: var(--main-transition);
+  box-shadow: var(--main-box-shadow);
+}
+
+.Frequently .Question-box .qu-text {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--main-transition);
+}
+.Frequently .Question-box .qu-text .left {
+  position: relative;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.Frequently .Question-box .qu-text .left i {
+  min-width: 25px;
+  max-width: 25px;
+  height: 25px;
+  border: 3px solid var(--border-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--border-color);
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.Frequently .Question-box .qu-text .left i.active {
+  color: var(--red-color);
+  border: 3px solid var(--red-color);
+  transition: var(--main-transition);
+}
+.Frequently .Question-box .qu-text .left h1 {
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: bold;
+  color: var(--border-color);
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+@media (max-width: 992px) {
+  .Frequently .Question-box .qu-text .left h1 {
+    font-size: 14px;
+  }
+}
+.Frequently .Question-box .qu-text .left h1.active {
+  color: var(--red-color);
+  transition: var(--main-transition);
+}
+.Frequently .Question-box .qu-text .right i {
+  position: relative;
+  color: var(--border-color);
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+.Frequently .Question-box .qu-text .right i.active {
+  color: var(--red-color);
+  transition: var(--main-transition);
+}
+.Frequently .Question-box .ans {
+  position: relative;
+  color: var(--gray-color);
+  height: 0;
+  opacity: 0;
+  transition: var(--main-transition);
+  overflow: hidden;
+}
+.Frequently .Question-box .ans.active {
+  display: flex;
+  height: 80px;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.Frequently .Question-box .ans p {
+  position: relative;
+  line-height: 1.7;
+  text-align: justify;
+  font-size: 14px;
+  color: var(--main-color);
+  padding: 15px 15px 0 15px;
+}
+
+@media (max-width: 992px) {
+  .Frequently .Question-box .ans p {
+    font-size: 12px;
+  }
+}

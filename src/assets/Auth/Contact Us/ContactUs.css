@@ -7,8 +7,75 @@
   padding-bottom: var(--main-padding-bottom);
   width: 100%;
 }
-
 .ContactUs .container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# ContactUs Navlinks
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ContactUs .container .links {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  transition: var(--main-transition);
+}
+.ContactUs .container .links .menu-nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  transition: var(--main-transition);
+}
+.ContactUs .container .links .menu-nav a {
+  position: relative;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--gray-color);
+  transition: var(--main-transition);
+}
+.ContactUs .container .links .menu-nav a:not(:first-child)::before {
+  position: absolute;
+  content: "\f105";
+  font-weight: 900;
+  font-family: "Font Awesome 5 free";
+  right: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: var(--main-transition);
+}
+.ContactUs .container .menu-nav a.active {
+  color: var(--main-color);
+}
+.ContactUs .container .links .Favorite-ele {
+  position: relative;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  color: var(--gray-color);
+}
+.ContactUs .container .links .Favorite-ele:hover {
+  font-weight: bold;
+  color: var(--red-color);
+
+  box-shadow: var(--main-box-shadow-red);
+}
+/*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
+# ContactUs Content
+ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
+.ContactUs .container .content {
   position: relative;
   display: flex;
   justify-content: center;
@@ -16,14 +83,14 @@
   gap: 10px;
 }
 @media (max-width: 992px) {
-  .ContactUs .container {
+  .ContactUs .container .content {
     flex-direction: column;
   }
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # ContactUs left
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.ContactUs .container .left {
+.ContactUs .container .content .left {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,11 +98,11 @@
   flex-basis: 50%;
 }
 
-.ContactUs .container .left h1 {
+.ContactUs .container .content .left h1 {
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
 }
-.ContactUs .container .left p {
+.ContactUs .container .content .left p {
   color: var(--gray-color);
   line-height: 1.7;
   letter-spacing: 1px;
@@ -43,17 +110,17 @@
   width: 90%;
 }
 @media (max-width: 992px) {
-  .ContactUs .container .left p {
+  .ContactUs .container .content .left p {
     width: 100%;
   }
 }
-.ContactUs .container .contact-box {
+.ContactUs .container .content .contact-box {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-.ContactUs .container .contact-box .contact {
+.ContactUs .container .content .contact-box .contact {
   position: relative;
   display: flex;
   align-items: center;
@@ -64,11 +131,11 @@
   cursor: pointer;
   width: fit-content;
 }
-.ContactUs .container .contact-box .contact:hover {
+.ContactUs .container .content .contact-box .contact:hover {
   color: var(--red-color);
 }
 
-.ContactUs .container .contact-box i {
+.ContactUs .container .content .contact-box i {
   width: 35px;
   height: 35px;
   background-color: var(--white-color);
@@ -80,22 +147,22 @@
   align-items: center;
   transition: var(--main-transition);
 }
-.ContactUs .container .contact-box .contact:hover i {
+.ContactUs .container .content .contact-box .contact:hover i {
   background-color: var(--red-color);
   color: var(--white-color);
 }
-.ContactUs .container .left .social {
+.ContactUs .container .content .left .social {
   position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
 }
-.ContactUs .container .left .social i {
+.ContactUs .container .content .left .social i {
   position: relative;
   width: 35px;
   height: 35px;
-  background-color: var(--gray-color);
+  background-color: var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,48 +171,49 @@
   cursor: pointer;
   transition: var(--main-transition);
 }
-.ContactUs .container .left .social i:hover {
+.ContactUs .container .content .left .social i:hover {
   background-color: var(--red-color);
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # ContactUs right
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.ContactUs .container .right {
+.ContactUs .container .content .right {
   position: relative;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
   flex-basis: 50%;
 }
 @media (max-width: 992px) {
-  .ContactUs .container .right,
-  .ContactUs .container .left {
+  .ContactUs .container .content .right,
+  .ContactUs .container .content .left {
     flex-basis: 100%;
   }
 }
-.ContactUs .container .right .box {
+.ContactUs .container .content .right .box {
   position: relative;
   display: flex;
   width: 100%;
   gap: 10px;
 }
-.ContactUs .container .right .box .input-box {
+.ContactUs .container .content .right .box .input-box {
   position: relative;
   display: flex;
   flex-direction: column-reverse;
   gap: 10px;
   width: 100%;
 }
-.ContactUs .container .right .box .input-box label {
+.ContactUs .container .content .right .box .input-box label {
   position: relative;
   color: var(--gray-color);
   cursor: pointer;
   transition: var(--main-transition);
 }
 
-.ContactUs .container .right .box .input-box input {
+.ContactUs .container .content .right .box .input-box input {
   padding: 15px;
   border: 1px solid #bebebe;
   color: #3d3d3d;
@@ -156,18 +224,18 @@
   width: 100%;
 }
 
-.ContactUs .container .right .box .input-box input::placeholder {
+.ContactUs .container .content .right .box .input-box input::placeholder {
   text-transform: capitalize;
   font-size: 15px;
   transition: var(--main-transition);
 }
-.ContactUs .container .right .box .input-box input:focus {
+.ContactUs .container .content .right .box .input-box input:focus {
   outline: none;
 }
-.ContactUs .container .right .box .input-box input:focus::placeholder {
+.ContactUs .container .content .right .box .input-box input:focus::placeholder {
   opacity: 0;
 }
-.ContactUs .container .right .box .input-box input[type="button"] {
+.ContactUs .container .content .right .box .input-box input[type="button"] {
   background-color: var(--red-color);
   color: #fff;
   font-size: 18px;
@@ -182,7 +250,7 @@
 .reservation .container input[type="button"]:hover {
   background-color: #bf2222;
 }
-.ContactUs .container .right .box .input-box textarea {
+.ContactUs .container .content .right .box .input-box textarea {
   position: relative;
   width: 100%;
   height: 150px;
@@ -194,19 +262,25 @@
   border-radius: 5px;
   transition: var(--main-transition);
 }
-.ContactUs .container .right .box .input-box textarea::placeholder {
+.ContactUs .container .content .right .box .input-box textarea::placeholder {
   text-transform: capitalize;
   font-size: 15px;
   transition: var(--main-transition);
 }
-.ContactUs .container .right .box .input-box textarea:focus {
+.ContactUs .container .content .right .box .input-box textarea:focus {
   outline: none;
 }
-.ContactUs .container .right .box .input-box textarea:focus::placeholder {
+.ContactUs
+  .container
+  .content
+  .right
+  .box
+  .input-box
+  textarea:focus::placeholder {
   opacity: 0;
 }
-.ContactUs .container .right .box .input-box input:focus + label,
-.ContactUs .container .right .box .input-box textarea:focus ~ label {
+.ContactUs .container .content .right .box .input-box input:focus + label,
+.ContactUs .container .content .right .box .input-box textarea:focus ~ label {
   color: var(--red-color);
   font-weight: 400;
 }
