@@ -8,7 +8,7 @@ import { Pagination } from "swiper/modules";
 import "./Recommendation.css";
 import { Link } from "react-router-dom";
 
-function Recommendation({ HandleISInCart, min, max }) {
+function Recommendation({ HandleISInCart, min, max, ActiveBorder }) {
   const RecommendationData = useContext(FoodContext);
   const [Slider, SetSlider] = useState(null);
 
@@ -28,7 +28,10 @@ function Recommendation({ HandleISInCart, min, max }) {
   return (
     <React.Fragment>
       <div className="Recommendation">
-        <div className="container" data-aos="fade-up">
+        <div
+          className={ActiveBorder ? "container active" : "container"}
+          data-aos="fade-up"
+        >
           <div className="head">
             <p>Recommendation</p>
             <h1>Recommended For you</h1>

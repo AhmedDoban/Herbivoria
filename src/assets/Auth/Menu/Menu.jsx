@@ -215,7 +215,12 @@ function Menu({ HandleISInCart }) {
         </div>
       </div>
       {/************************** Recommendation *****************************/}
-      <Recommendation HandleISInCart={HandleISInCart} min="58" max="68" />
+      <Recommendation
+        HandleISInCart={HandleISInCart}
+        min="58"
+        max="68"
+        ActiveBorder={true}
+      />
       {/************************** End Recommendation *****************************/}
       {/************************** Testimonios *****************************/}
       <Testimonios />

@@ -8,6 +8,9 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import RemoveShoppingCartOutlinedIcon from "@mui/icons-material/RemoveShoppingCartOutlined";
 import Recommendation from "../Recommendation/Recommendation";
 import Footer from "../Footer/Footer";
+import Waves from "./../Waves/Waves";
+import Testimonios from "../../Auth/Home/Testimonios/Testimonios";
+
 function FoodDetails({ HandleISInCart }) {
   const Params = useParams();
   const FoodId = useContext(FoodContext);
@@ -28,7 +31,11 @@ function FoodDetails({ HandleISInCart }) {
 
   return (
     <React.Fragment>
-      <div className="FoodDetails">
+      <div
+        className={
+          CurrentFood === "undefined" ? "FoodDetails" : "FoodDetails active"
+        }
+      >
         <div className="container" data-aos="fade-up">
           <div className="links">
             <div className="menu-nav">
@@ -99,9 +106,13 @@ function FoodDetails({ HandleISInCart }) {
       </div>
       {CurrentFood === "undefined" ? null : (
         <React.Fragment>
+          <Waves styleWave="up" />
           {/************************** Start Recommendation *****************************/}
           <Recommendation HandleISInCart={HandleISInCart} min="40" max="48" />
           {/************************** End Recommendation *****************************/}
+          {/************************** Start Testimonios *****************************/}
+          <Testimonios />
+          {/************************** End Testimonios *****************************/}
           {/************************** Start Footer *****************************/}
           <Footer />
           {/************************** End Footer *****************************/}

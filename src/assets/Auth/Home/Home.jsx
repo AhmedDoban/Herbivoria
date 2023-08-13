@@ -23,7 +23,12 @@ function Home({ HandleISInCart }) {
         {/*=========================================================
          # Recommendation
         =========================================================*/}
-        <Recommendation HandleISInCart={HandleISInCart} min="0" max="8" />
+        <Recommendation
+          HandleISInCart={HandleISInCart}
+          min="0"
+          max="8"
+          ActiveBorder={true}
+        />
         {/*=========================================================
          # Our features 
         =========================================================*/}

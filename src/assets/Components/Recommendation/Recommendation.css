@@ -7,9 +7,12 @@
 }
 .Recommendation .container {
   position: relative;
-  border-top: 1px solid var(--bg-color);
+
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
+}
+.Recommendation .container.active {
+  border-top: 1px solid var(--bg-color);
 }
 .Recommendation .container .head {
   position: relative;
