@@ -3,6 +3,7 @@ import "./ContactUs.css";
 import Footer from "./../../Components/Footer/Footer";
 import { NavLink } from "react-router-dom";
 import Frequently from "./Frequently/Frequently";
+import Waves from "./../../Components/Waves/Waves";
 
 function ContactUs() {
   return (
@@ -17,7 +18,10 @@ function ContactUs() {
           </div>
           <div className="content" data-aos="fade-up">
             <div className="left">
-              <h1>Contact US</h1>
+              <h1>
+                <i className="fa-solid fa-headset" />
+                Contact US
+              </h1>
               <p>
                 Need to get in touch with us ? Either fill out the form with
                 your inquiry or find the department email you'd like to contact
@@ -89,6 +93,7 @@ function ContactUs() {
           </div>
         </div>
       </div>
+      <Waves styleWave="up" />
       {/************************** start Frequently *****************************/}
       <Frequently />
       {/************************** End Frequently *****************************/}

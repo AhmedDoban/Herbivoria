@@ -9,7 +9,7 @@ function Frequently() {
         <div className="container" data-aos="fade-up">
           <div className="head">
             <p>Frequently</p>
-            <h1>FREQUENTLY ASKED QUESTIONS</h1>
+            <h1>Frequently Asked Questions</h1>
           </div>
           <div className="content">
             <Question

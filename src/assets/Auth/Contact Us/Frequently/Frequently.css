@@ -9,7 +9,6 @@
 }
 .Frequently .container {
   position: relative;
-  border-top: 1px solid var(--bg-color);
   padding-top: var(--main-padding-top);
 }
 .Frequently .container .head h1 {
@@ -17,6 +16,7 @@
   margin: 0 0 30px 0;
   color: var(--red-color);
   text-shadow: var(--main-text-shadow);
+  text-transform: capitalize;
 }
 .Frequently .container .head p {
   position: relative;
