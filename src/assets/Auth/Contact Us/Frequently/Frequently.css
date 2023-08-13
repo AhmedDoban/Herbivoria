@@ -3,12 +3,12 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .Frequently {
   position: relative;
-
   padding-bottom: var(--main-padding-bottom);
   width: 100%;
 }
 .Frequently .container {
   position: relative;
+  border-top: 1px solid var(--bg-color);
   padding-top: var(--main-padding-top);
 }
 .Frequently .container .head h1 {
