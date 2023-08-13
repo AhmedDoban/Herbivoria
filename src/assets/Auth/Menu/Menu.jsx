@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import WindowIcon from "@mui/icons-material/Window";
 import ReorderIcon from "@mui/icons-material/Reorder";
 import MenuController from "./MenuController";
@@ -119,17 +119,20 @@ function Menu({ HandleISInCart }) {
                       {StyleCard === "Grid" ? (
                         <div className="food-box" key={item.id}>
                           <i className="fa-regular fa-heart Favorite-ele" />
-                          <img src={item.img} alt={item.name} />
-                          <h5>
-                            {item.name.length > 10
-                              ? `${item.name.slice(0, 10) + `...`}`
-                              : item.name}
-                          </h5>
-                          <p>
-                            {item.Details.length > 50
-                              ? `${item.Details.slice(0, 50)}...`
-                              : item.Details}
-                          </p>
+                          <Link to={`/Details/${item.id}`}>
+                            <img src={item.img} alt={item.name} />
+                            <h5>
+                              {item.name.length > 10
+                                ? `${item.name.slice(0, 10) + `...`}`
+                                : item.name}
+                            </h5>
+                            <p>
+                              {item.Details.length > 50
+                                ? `${item.Details.slice(0, 50)}...`
+                                : item.Details}
+                            </p>
+                          </Link>
+
                           <div className="actions">
                             <div className="price">{item.price} $</div>
                             <button
@@ -142,15 +145,15 @@ function Menu({ HandleISInCart }) {
                         </div>
                       ) : (
                         <div className="food-box" key={item.id}>
-                          <div className="left">
+                          <Link className="left" to={`/Details/${item.id}`}>
                             <img src={item.img} alt={item.name} />
-                          </div>
+                          </Link>
 
                           <div className="right">
-                            <div className="info">
+                            <Link className="info" to={`/Details/${item.id}`}>
                               <h5>{item.name}</h5>
                               <p>{item.Details}</p>
-                            </div>
+                            </Link>
                             <div className="info actions">
                               <div className="price">{item.price}$</div>
                               <button

@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import "./Recommendation.css";
+import { Link } from "react-router-dom";
 
 function Recommendation({ HandleISInCart, min, max }) {
   const RecommendationData = useContext(FoodContext);
@@ -57,17 +58,20 @@ function Recommendation({ HandleISInCart, min, max }) {
               <SwiperSlide key={item.id}>
                 <div className="RecommendationCard">
                   <i className="fa-regular fa-heart Favorite-ele" />
-                  <img src={item.img} alt={item.name} />
-                  <h5>
-                    {item.name.length > 10
-                      ? `${item.name.slice(0, 10) + `...`}`
-                      : item.name}
-                  </h5>
-                  <p>
-                    {item.Details.length > 50
-                      ? `${item.Details.slice(0, 50)}...`
-                      : item.Details}
-                  </p>
+                  <Link to={`/Details/${item.id}`}>
+                    <img src={item.img} alt={item.name} />
+                    <h5>
+                      {item.name.length > 10
+                        ? `${item.name.slice(0, 10) + `...`}`
+                        : item.name}
+                    </h5>
+                    <p>
+                      {item.Details.length > 50
+                        ? `${item.Details.slice(0, 50)}...`
+                        : item.Details}
+                    </p>
+                  </Link>
+
                   <div className="actions">
                     <div className="price">{item.price} $</div>
                     <button

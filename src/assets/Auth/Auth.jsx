@@ -4,6 +4,7 @@ import Home from "./Home/Home";
 import Navbar from "../Components/Navbar/Navbar";
 import Menu from "./Menu/Menu";
 import { FoodData } from "../Data/Food";
+import FoodDetails from "../Components/Food Details/FoodDetails";
 
 export const FoodContext = createContext();
 function Auth() {
@@ -73,6 +74,10 @@ function Auth() {
                 element={
                   <Menu SetFood={SetFood} HandleISInCart={HandleISInCart} />
                 }
+              />
+              <Route
+                path="/Details/:id"
+                element={<FoodDetails HandleISInCart={HandleISInCart} />}
               />
             </Routes>
           </FoodContext.Provider>

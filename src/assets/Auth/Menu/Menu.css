@@ -3,7 +3,6 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 .menu-food {
   position: relative;
-  width: 100%;
   padding-top: var(--main-padding-top);
   padding-bottom: var(--main-padding-bottom);
   width: 100%;
@@ -344,6 +343,16 @@
   border-radius: 15px;
   border: 3px dashed var(--bg-color);
   height: 300px;
+}
+.menu-food .container .content .right.Grid .food-box a {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .menu-food .container .content .right.Grid .food-box .Favorite-ele {
   position: absolute;
