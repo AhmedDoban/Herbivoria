@@ -143,7 +143,7 @@
   color: var(--red-color);
   text-transform: capitalize;
   font-weight: bold;
-  text-shadow: 0px 3px 5px rgba(255, 0, 0, 0.2);
+  text-shadow: var(--main-text-shadow-red);
 }
 .FoodDetails .container .content .right .health-info {
   position: relative;

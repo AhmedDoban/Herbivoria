@@ -23,6 +23,10 @@
   height: 100%;
 }
 @media (max-width: 992px) {
+  .landing {
+    height: auto;
+    min-height: calc(100vh - 125px);
+  }
   .landing .container {
     flex-direction: column-reverse;
     justify-content: center;

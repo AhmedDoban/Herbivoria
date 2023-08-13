@@ -5,6 +5,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import Menu from "./Menu/Menu";
 import { FoodData } from "../Data/Food";
 import FoodDetails from "../Components/Food Details/FoodDetails";
+import ContactUs from "./Contact Us/ContactUs";
 
 export const FoodContext = createContext();
 function Auth() {
@@ -78,6 +79,10 @@ function Auth() {
               <Route
                 path="/Details/:id"
                 element={<FoodDetails HandleISInCart={HandleISInCart} />}
+              />
+              <Route
+                path="/Contact_Us"
+                element={<ContactUs HandleISInCart={HandleISInCart} />}
               />
             </Routes>
           </FoodContext.Provider>
