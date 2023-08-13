@@ -109,15 +109,12 @@
   position: relative;
   color: var(--gray-color);
   height: 0;
-  opacity: 0;
   transition: var(--main-transition);
   overflow: hidden;
 }
 .Frequently .Question-box .ans.active {
   display: flex;
   height: 80px;
-  opacity: 1;
-  transform: scale(1);
 }
 
 .Frequently .Question-box .ans p {
