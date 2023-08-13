@@ -14,20 +14,35 @@ import Testimonios from "../Home/Testimonios/Testimonios";
 function Menu({ HandleISInCart }) {
   const FoodData = useContext(FoodContext);
   const [SeeMore, SetSeeMore] = useState(9);
-
+  const [StyleCard, SetStyleCard] = useState("Grid");
+  const [ControlFilter, SetControlFilter] = useState(false);
+  const [FoodType, SetFoodType] = useState("");
+  const [Calories, SetCalories] = useState([5, 250]);
+  const [Price, SetPrice] = useState([0, 100]);
+  const [Width_length, SetWidth_length] = useState("16.5-25");
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
   const HandelNextNavigation = () => {
-    if (FoodData.length < SeeMore) {
-      return;
+    if (FoodType === "") {
+      if (FoodData.length < SeeMore) {
+        return;
+      }
+      SetSeeMore(SeeMore + 9);
+      scrollToTop();
+    } else {
+      if (
+        FoodData.filter((Foods) => Foods.type === FoodType).length < SeeMore
+      ) {
+        return;
+      }
+      SetSeeMore(SeeMore + 9);
+      scrollToTop();
     }
-    SetSeeMore(SeeMore + 9);
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    };
-    scrollToTop();
   };
   const HandelPreviousNavigation = () => {
     if (SeeMore <= 0 || SeeMore === 9) {
@@ -35,25 +50,12 @@ function Menu({ HandleISInCart }) {
       return;
     }
     SetSeeMore(SeeMore - 9);
-    const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    };
     scrollToTop();
   };
   const HandleFoodType = (type) => {
     SetFoodType(type);
     SetSeeMore(9);
   };
-  const [StyleCard, SetStyleCard] = useState("Grid");
-  const [ControlFilter, SetControlFilter] = useState(false);
-  const [FoodType, SetFoodType] = useState("");
-  const [Calories, SetCalories] = useState([5, 250]);
-  const [Price, SetPrice] = useState([0, 100]);
-  const [Width_length, SetWidth_length] = useState("16.5-25");
 
   const HandleChangeCaloriesOrPrice = (value, index, type) => {
     if (type === "Calories") {
@@ -119,7 +121,10 @@ function Menu({ HandleISInCart }) {
                       {StyleCard === "Grid" ? (
                         <div className="food-box" key={item.id}>
                           <i className="fa-regular fa-heart Favorite-ele" />
-                          <Link to={`/Details/${item.id}`}>
+                          <Link
+                            to={`/Details/${item.id}`}
+                            onClick={() => scrollToTop()}
+                          >
                             <img src={item.img} alt={item.name} />
                             <h5>
                               {item.name.length > 10
@@ -145,12 +150,20 @@ function Menu({ HandleISInCart }) {
                         </div>
                       ) : (
                         <div className="food-box" key={item.id}>
-                          <Link className="left" to={`/Details/${item.id}`}>
+                          <Link
+                            className="left"
+                            to={`/Details/${item.id}`}
+                            onClick={() => scrollToTop()}
+                          >
                             <img src={item.img} alt={item.name} />
                           </Link>
 
                           <div className="right">
-                            <Link className="info" to={`/Details/${item.id}`}>
+                            <Link
+                              className="info"
+                              to={`/Details/${item.id}`}
+                              onClick={() => scrollToTop()}
+                            >
                               <h5>{item.name}</h5>
                               <p>{item.Details}</p>
                             </Link>

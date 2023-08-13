@@ -99,7 +99,7 @@ function FoodDetails({ HandleISInCart }) {
       </div>
       {CurrentFood === "undefined" ? null : (
         <React.Fragment>
-          <Recommendation HandleISInCart={HandleISInCart} />
+          <Recommendation HandleISInCart={HandleISInCart} min="40" max="48" />
           <Footer />
         </React.Fragment>
       )}

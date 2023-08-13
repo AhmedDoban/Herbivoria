@@ -18,7 +18,13 @@ function Recommendation({ HandleISInCart, min, max }) {
   const PreviousSlider = () => {
     Slider.slidePrev();
   };
-
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <React.Fragment>
       <div className="Recommendation">
@@ -58,7 +64,10 @@ function Recommendation({ HandleISInCart, min, max }) {
               <SwiperSlide key={item.id}>
                 <div className="RecommendationCard">
                   <i className="fa-regular fa-heart Favorite-ele" />
-                  <Link to={`/Details/${item.id}`}>
+                  <Link
+                    to={`/Details/${item.id}`}
+                    onClick={() => scrollToTop()}
+                  >
                     <img src={item.img} alt={item.name} />
                     <h5>
                       {item.name.length > 10
