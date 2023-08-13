@@ -9,7 +9,7 @@ function ContactUs() {
   return (
     <React.Fragment>
       <div className="ContactUs">
-        <div className="container" data-aos="fade-up">
+        <div className="container" data-aos="zoom-in-up">
           <div className="left">
             <h1>
               <i className="fa-solid fa-headset" />

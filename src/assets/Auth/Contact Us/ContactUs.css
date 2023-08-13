@@ -28,7 +28,6 @@
 @media (max-width: 992px) {
   .ContactUs .container {
     justify-content: center;
-    align-items: baseline;
     flex-direction: column-reverse;
   }
 }
@@ -55,6 +54,7 @@
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
 }
+
 .ContactUs .container .left p {
   color: var(--main-color);
   line-height: 1.7;
@@ -63,7 +63,12 @@
   width: 80%;
 }
 @media (max-width: 992px) {
+  .ContactUs .container .left h1 {
+    text-align: center;
+    justify-content: center;
+  }
   .ContactUs .container .left p {
+    text-align: center;
     width: 100%;
   }
 }
