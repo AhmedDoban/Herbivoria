@@ -2,7 +2,8 @@ import React from "react";
 import OpenDetails from "./Open Details/OpenDetails";
 import Footer from "./../../Components/Footer/Footer";
 import OurResturant from "./Our Resturant/OurResturant";
-import Delivery from "./../Home/Delivery/Delivery";
+import Status from "./Status/Status";
+import Events from "./Events/Events";
 
 function AboutUs() {
   return (
@@ -14,9 +15,12 @@ function AboutUs() {
         {/************************** Start Open Details *****************************/}
         <OpenDetails />
         {/************************** End Open Details *****************************/}
-        {/************************** Start Delivery*****************************/}
-        <Delivery />
-        {/************************** End Delivery *****************************/}
+        {/************************** Start Status*****************************/}
+        <Status />
+        {/************************** End Status *****************************/}
+        {/************************** Start Events*****************************/}
+        <Events />
+        {/************************** End Events *****************************/}
         {/************************** Start Footer *****************************/}
         <Footer />
         {/************************** End Footer*****************************/}
