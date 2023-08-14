@@ -18,7 +18,7 @@
   position: relative;
   margin: 0 0 50px 0;
   color: var(--red-color);
-  text-shadow: var(--main-text-shadow);
+  text-shadow: var(--main-text-shadow-red);
 }
 .OurFeatures .container .OurFeatures-container {
   position: relative;

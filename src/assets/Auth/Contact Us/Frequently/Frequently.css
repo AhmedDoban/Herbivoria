@@ -5,6 +5,7 @@
   position: relative;
   padding-bottom: var(--main-padding-bottom);
   width: 100%;
+  overflow: hidden;
 }
 .Frequently .container {
   position: relative;
@@ -15,7 +16,7 @@
   position: relative;
   margin: 0 0 30px 0;
   color: var(--red-color);
-  text-shadow: var(--main-text-shadow);
+  text-shadow: var(--main-text-shadow-red);
   text-transform: capitalize;
 }
 .Frequently .container .head p {

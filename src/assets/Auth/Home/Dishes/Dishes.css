@@ -28,7 +28,7 @@
 .dishes .container .head h1 {
   position: relative;
   color: var(--red-color);
-  text-shadow: var(--main-text-shadow);
+  text-shadow: var(--main-text-shadow-red);
 }
 .dishes .container .dishes-container {
   position: relative;

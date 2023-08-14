@@ -17,7 +17,7 @@
   position: relative;
   margin: 0 0 30px 0;
   color: var(--red-color);
-  text-shadow: var(--main-text-shadow);
+  text-shadow: var(--main-text-shadow-red);
 }
 .reservation .container .head p {
   position: relative;

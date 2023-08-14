@@ -79,6 +79,7 @@
 }
 .Delivery .container .right .head h1 {
   color: var(--red-color);
+  text-shadow: var(--main-text-shadow-red);
 }
 .Delivery .container .right .head span {
   position: relative;

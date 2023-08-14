@@ -25,7 +25,7 @@
   position: relative;
 
   color: var(--red-color);
-  text-shadow: var(--main-text-shadow);
+  text-shadow: var(--main-text-shadow-red);
 }
 .Recommendation .container .head p {
   position: relative;
