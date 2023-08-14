@@ -20,7 +20,7 @@ function OpenDetails() {
   return (
     <React.Fragment>
       <div className="OpenDetails">
-        <div className="container">
+        <div className="container" data-aos="fade-up">
           <div className="head">
             <p>COME ON IN</p>
             <h1>We're Open</h1>
