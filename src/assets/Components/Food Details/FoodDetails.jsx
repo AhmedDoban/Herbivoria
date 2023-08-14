@@ -79,24 +79,23 @@ function FoodDetails({ HandleISInCart }) {
                   <p>{CurrentFood.Details}</p>
                   <div className="actions">
                     <div className="price">${CurrentFood.price}.00</div>
-
-                    <button
-                      onClick={() => HandleISInCart(CurrentFood.id)}
-                      className={CurrentFood.isInCart ? "active" : ""}
-                    >
-                      {CurrentFood.isInCart ? (
-                        <React.Fragment>
-                          <span> Remove From Cart</span>
-
+                    <div className="btn-animation">
+                      <button
+                        onClick={() => HandleISInCart(CurrentFood.id)}
+                        className={CurrentFood.isInCart ? "active" : ""}
+                      >
+                        {CurrentFood.isInCart ? (
                           <RemoveShoppingCartOutlinedIcon />
-                        </React.Fragment>
-                      ) : (
-                        <React.Fragment>
-                          <span>Add to Cart</span>
+                        ) : (
                           <ShoppingCartOutlinedIcon />
-                        </React.Fragment>
-                      )}
-                    </button>
+                        )}
+                      </button>
+                      <p>
+                        {CurrentFood.isInCart
+                          ? "Remove From Cart"
+                          : "Add To Cart"}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -147,18 +147,21 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
+  transition: var(--main-transition);
 }
 .FoodDetails .container .content .right > h1 {
   color: var(--red-color);
   text-transform: capitalize;
   font-weight: bold;
   text-shadow: var(--main-text-shadow-red);
+  transition: var(--main-transition);
 }
 @media (max-width: 992px) {
   .FoodDetails .container .content .right {
     justify-content: center;
     align-items: center;
     text-align: center;
+    transition: var(--main-transition);
   }
 }
 .FoodDetails .container .content .right .health-info {
@@ -166,13 +169,16 @@
   display: flex;
   gap: 20px;
   align-items: center;
+  transition: var(--main-transition);
 }
 .FoodDetails .container .content .right .health-info p {
   color: var(--gray-color);
+  transition: var(--main-transition);
 }
 .FoodDetails .container .content .right .health-info p span {
   color: var(--main-color);
   font-weight: bold;
+  transition: var(--main-transition);
 }
 .FoodDetails .container .content .right > p {
   position: relative;
@@ -195,6 +201,7 @@
   gap: 20px;
   align-items: center;
   width: 100%;
+  transition: var(--main-transition);
 }
 .FoodDetails .container .content .right .actions .price {
   position: relative;
@@ -202,14 +209,43 @@
   color: var(--main-color);
   font-size: 18px;
   text-shadow: var(--main-text-shadow);
+  transition: var(--main-transition);
+}
+.FoodDetails .container .content .right .actions .btn-animation {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  gap: 10px;
+  transition: var(--main-transition);
+}
+.FoodDetails .container .content .right .actions button + p {
+  opacity: 0;
+  scale: 0;
+  transition: var(--main-transition);
+}
+.FoodDetails .container .content .right .actions button:hover + p {
+  position: relative;
+  scale: 1;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background-color: var(--bg-color);
+  font-weight: 500;
+  color: var(--gray-color);
+  box-shadow: var(--main-box-shadow);
 }
 .FoodDetails .container .content .right .actions button {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 8px 15px;
-  gap: 0px;
+  padding: 8px;
   border: 0;
   border-radius: 12px;
   cursor: pointer;
@@ -221,21 +257,8 @@
   height: 35px;
   transition: var(--main-transition);
 }
-.FoodDetails .container .content .right .actions button:hover {
-  justify-content: space-between;
-  width: fit-content;
-  gap: 15px;
-}
-.FoodDetails .container .content .right .actions button span {
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
-}
-.FoodDetails .container .content .right .actions button:hover span {
-  opacity: 1;
-  width: fit-content;
-}
-.FoodDetails .container .content .right .actions button.active {
+.FoodDetails .container .content .right .actions button.active,
+.FoodDetails .container .content .right .actions button.active + p {
   color: var(--white-color);
   background-color: var(--red-color);
   box-shadow: var(--main-box-shadow-red);

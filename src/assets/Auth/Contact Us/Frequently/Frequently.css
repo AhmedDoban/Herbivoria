@@ -33,16 +33,17 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+  transition: var(--main-transition);
 }
+
 .Frequently .Question-box {
   position: relative;
   display: flex;
   flex-direction: column;
-  background-color: var(--white-color);
-  padding: 20px;
   border-radius: 12px;
-  transition: var(--main-transition);
   box-shadow: var(--main-box-shadow);
+  overflow: hidden;
+  transition: var(--main-transition);
 }
 
 .Frequently .Question-box .qu-text {
@@ -51,12 +52,15 @@
   justify-content: space-between;
   align-items: center;
   transition: var(--main-transition);
+  padding: 20px;
 }
 .Frequently .Question-box .qu-text .left {
   position: relative;
   display: flex;
   gap: 10px;
   align-items: center;
+  height: auto;
+  transition: var(--main-transition);
 }
 .Frequently .Question-box .qu-text .left i {
   min-width: 25px;
@@ -109,21 +113,29 @@
   position: relative;
   color: var(--gray-color);
   height: 0;
-  transition: var(--main-transition);
+  padding: 0;
   overflow: hidden;
+  transition: var(--main-transition);
 }
 .Frequently .Question-box .ans.active {
-  display: flex;
-  height: 80px;
+  height: 150px;
+  transition: var(--main-transition);
 }
 
 .Frequently .Question-box .ans p {
   position: relative;
   line-height: 1.7;
+  padding: 20px;
   text-align: justify;
   font-size: 14px;
   color: var(--main-color);
-  padding: 15px 15px 0 15px;
+  transition: var(--main-transition);
+  opacity: 0;
+  scale: 0;
+}
+.Frequently .Question-box .ans.active p {
+  opacity: 1;
+  scale: 1;
 }
 
 @media (max-width: 992px) {
