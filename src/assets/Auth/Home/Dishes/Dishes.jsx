@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import "./Dishes.css";
 import { FoodContext } from "../../Auth";
+import { Link } from "react-router-dom";
 
 function Dishes({ HandleISInCart }) {
   const DishesData = useContext(FoodContext);
@@ -17,7 +18,7 @@ function Dishes({ HandleISInCart }) {
             {DishesData.filter((dish) => dish.type === "Dishes")
               .slice(0, 8)
               .map((dish) => (
-                <div className="box" key={dish.id}>
+                <Link className="box" key={dish.id} to={`/Details/${dish.id}`}>
                   <i className="fa-regular fa-heart Favorite-ele" />
                   <div className="price">{dish.price} $</div>
                   <img src={dish.img} alt="fries_Salade" />
@@ -34,7 +35,7 @@ function Dishes({ HandleISInCart }) {
                     <span> Oreder now</span>
                     <i className="fa-solid fa-cart-plus" />
                   </button>
-                </div>
+                </Link>
               ))}
           </div>
         </div>
