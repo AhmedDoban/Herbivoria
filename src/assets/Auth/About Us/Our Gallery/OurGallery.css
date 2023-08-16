@@ -7,7 +7,25 @@
   padding-bottom: var(--main-padding-bottom);
   width: 100%;
 }
-
+.OurGallery .container .head {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 30px 0;
+  width: 100%;
+}
+.OurGallery .container .head h1 {
+  position: relative;
+  color: var(--red-color);
+  text-shadow: var(--main-text-shadow-red);
+}
+.OurGallery .container .head p {
+  position: relative;
+  font-weight: bold;
+  color: var(--gray-color);
+  letter-spacing: 1px;
+}
 .OurGallery .swiper-slide {
   background-position: center;
   background-size: cover;

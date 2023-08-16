@@ -22,32 +22,38 @@ function OurGallery() {
     <React.Fragment>
       <div className="OurGallery">
         <div className="container" data-aos="fade-up">
-          <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={"auto"}
-            coverflowEffect={{
-              rotate: 50,
-              stretch: 0,
-              depth: 100,
-              modifier: 1,
-              slideShadows: true,
-            }}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            pagination={true}
-            modules={[EffectCoverflow, Pagination, Autoplay]}
-          >
-            {Gallery.map((item, index) => (
-              <SwiperSlide>
-                <img src={item.img} alt="Gallery" />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <div className="head">
+            <p>Gallery</p>
+            <h1>Check Our Gallery</h1>
+          </div>
+          <div className="content">
+            <Swiper
+              effect={"coverflow"}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={"auto"}
+              coverflowEffect={{
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+              }}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              loop={true}
+              pagination={true}
+              modules={[EffectCoverflow, Pagination, Autoplay]}
+            >
+              {Gallery.map((item, index) => (
+                <SwiperSlide>
+                  <img src={item.img} alt="Gallery" />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
       </div>
     </React.Fragment>

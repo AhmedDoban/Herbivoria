@@ -14,7 +14,7 @@ function Events() {
           <div className="head">
             <p>Events</p>
             <h1>Share Your Moments In Our Restaurant</h1>
-          </div>{" "}
+          </div>
           <div className="content">
             <Swiper
               modules={[Pagination, Autoplay]}
