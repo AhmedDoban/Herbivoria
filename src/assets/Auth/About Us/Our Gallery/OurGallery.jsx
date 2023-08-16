@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
-import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import { EffectCoverflow, Pagination } from "swiper/modules";
 import "./OurGallery.css";
 
 function OurGallery() {
@@ -39,13 +39,9 @@ function OurGallery() {
                 modifier: 1,
                 slideShadows: true,
               }}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
               loop={true}
               pagination={true}
-              modules={[EffectCoverflow, Pagination, Autoplay]}
+              modules={[EffectCoverflow, Pagination]}
             >
               {Gallery.map((item, index) => (
                 <SwiperSlide>

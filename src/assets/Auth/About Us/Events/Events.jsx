@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 function Events() {
   return (
@@ -17,7 +17,7 @@ function Events() {
           </div>
           <div className="content">
             <Swiper
-              modules={[Pagination, Autoplay]}
+              modules={[Pagination]}
               breakpoints={{
                 350: {
                   slidesPerView: 1,
@@ -29,11 +29,6 @@ function Events() {
                 992: {
                   slidesPerView: 3,
                 },
-              }}
-              loop={true}
-              autoplay={{
-                delay: 3000,
-                disableOnInteraction: false,
               }}
               pagination={{
                 clickable: true,
