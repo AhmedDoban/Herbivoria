@@ -17,9 +17,12 @@ function Menu({ HandleISInCart }) {
   const [StyleCard, SetStyleCard] = useState("Grid");
   const [ControlFilter, SetControlFilter] = useState(false);
   const [FoodType, SetFoodType] = useState("");
-  const [Calories, SetCalories] = useState([5, 250]);
-  const [Price, SetPrice] = useState([0, 100]);
+
+  const [Calories, SetCalories] = useState([0, 1000]);
+  const [Price, SetPrice] = useState([0, 1000]);
   const [Width_length, SetWidth_length] = useState("16.5-25");
+  const [Spicy, SetSpicy] = useState(false);
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -28,15 +31,35 @@ function Menu({ HandleISInCart }) {
     });
   };
   const HandelNextNavigation = () => {
-    if (FoodType === "") {
+    if (
+      FoodType === "" &&
+      Calories[0] === 0 &&
+      Calories[1] === 1000 &&
+      Price[0] === 0 &&
+      Price[1] === 1000 &&
+      Spicy === false
+    ) {
       if (FoodData.length < SeeMore) {
         return;
       }
       SetSeeMore(SeeMore + 9);
       scrollToTop();
     } else {
-      if (
-        FoodData.filter((Foods) => Foods.type === FoodType).length < SeeMore
+      if (FoodType === "") {
+        if (
+          FoodData.filter(
+            (Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1]
+          )
+            .filter((Food) => Food.price >= Price[0] && Food.price <= Price[1])
+            .filter((Food) => (Spicy ? Food.Spicy : Food)).length <= SeeMore
+        ) {
+          return;
+        }
+      } else if (
+        FoodData.filter((Foods) => Foods.type === FoodType)
+          .filter((Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1])
+          .filter((Food) => Food.price >= Price[0] && Food.price <= Price[1])
+          .filter((Food) => (Spicy ? Food.Spicy : Food)).length <= SeeMore
       ) {
         return;
       }
@@ -55,18 +78,6 @@ function Menu({ HandleISInCart }) {
   const HandleFoodType = (type) => {
     SetFoodType(type);
     SetSeeMore(9);
-  };
-
-  const HandleChangeCaloriesOrPrice = (value, index, type) => {
-    if (type === "Calories") {
-      const Data = [...Calories];
-      Data[index] = value;
-      SetCalories(Data);
-    } else if (type === "Price") {
-      const Data = [...Price];
-      Data[index] = value;
-      SetPrice(Data);
-    }
   };
 
   return (
@@ -97,24 +108,35 @@ function Menu({ HandleISInCart }) {
             <MenuController
               FoodType={FoodType}
               HandleFoodType={HandleFoodType}
-              Calories={Calories}
               SetCalories={SetCalories}
-              Width_length={Width_length}
               SetWidth_length={SetWidth_length}
-              HandleChangeCaloriesOrPrice={HandleChangeCaloriesOrPrice}
-              Price={Price}
               SetPrice={SetPrice}
               ControlFilter={ControlFilter}
               SetControlFilter={SetControlFilter}
+              SetSpicy={SetSpicy}
             />
 
             {FoodData.filter((Foods) =>
               FoodType === "" ? Foods : Foods.type === FoodType
-            ).length > 0 ? (
+            )
+              .filter(
+                (Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1]
+              )
+              .filter(
+                (Food) => Food.price >= Price[0] && Food.price <= Price[1]
+              )
+              .filter((Food) => (Spicy ? Food.Spicy : Food)).length > 0 ? (
               <div className={`right ${StyleCard}`}>
                 {FoodData.filter((Foods) =>
                   FoodType === "" ? Foods : Foods.type === FoodType
                 )
+                  .filter(
+                    (Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1]
+                  )
+                  .filter(
+                    (Food) => Food.price >= Price[0] && Food.price <= Price[1]
+                  )
+                  .filter((Food) => (Spicy ? Food.Spicy : Food))
                   .slice(SeeMore - 9, SeeMore)
                   .map((item) => (
                     <React.Fragment>

@@ -7,7 +7,7 @@ function OurResturant() {
     <React.Fragment>
       <div className="OurResturant">
         <div className="container" data-aos="zoom-in-up">
-          <h1>Welcomce</h1>
+          <h1>Welcome</h1>
           <p>
             A very warm welcome to you! It is lovely to have you among us! It is
             our great pleasure to have you on resturant ! A hearty welcome to

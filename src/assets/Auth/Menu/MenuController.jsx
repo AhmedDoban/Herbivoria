@@ -1,19 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import Slider from "@mui/material/Slider";
 
 function MenuController({
-  Calories,
   FoodType,
   HandleFoodType,
   SetCalories,
-  HandleChangeCaloriesOrPrice,
-  Price,
   SetWidth_length,
-  Width_length,
   SetControlFilter,
   ControlFilter,
+  SetPrice,
+  SetSpicy,
 }) {
+  const [MenuCalories, SetMenuCalories] = useState([0, 1000]);
+  const [MenuSpicy, SetMenuSpicy] = useState(false);
+  const [MenuPrice, SetMenuPrice] = useState([0, 1000]);
+  const [MenuWidth_length, SetMenuWidth_length] = useState("16.5-25");
+
+  const MenuHandleChangeCaloriesOrPrice = (value, index, type) => {
+    if (type === "Calories") {
+      const Data = [...MenuCalories];
+      Data[index] = value;
+      SetMenuCalories(Data);
+    } else if (type === "Price") {
+      const Data = [...MenuPrice];
+      Data[index] = value;
+      SetMenuPrice(Data);
+    }
+  };
+
+  const HandleSendData = () => {
+    SetCalories(MenuCalories);
+    SetWidth_length(MenuWidth_length);
+    SetPrice(MenuPrice);
+    SetSpicy(MenuSpicy);
+  };
+
+  const HandleReset = async () => {
+    SetMenuCalories([0, 1000]);
+    SetMenuSpicy(false);
+    SetMenuPrice([0, 1000]);
+    SetMenuWidth_length("16.5-25");
+  };
   return (
     <React.Fragment>
       <div
@@ -71,27 +99,27 @@ function MenuController({
         <div className="box">
           <h3>Calories</h3>
           <Slider
-            value={Calories}
-            onChange={(e) => SetCalories(e.target.value)}
+            value={MenuCalories}
+            onChange={(e) => SetMenuCalories(e.target.value)}
             valueLabelDisplay="auto"
-            min={5}
-            max={250}
+            min={0}
+            max={1000}
             className="Slider"
           />
           <div className="inputs-box">
             <input
               type="text"
-              value={Calories[0]}
+              value={MenuCalories[0]}
               onChange={(e) =>
-                HandleChangeCaloriesOrPrice(e.target.value, 0, "Calories")
+                MenuHandleChangeCaloriesOrPrice(e.target.value, 0, "Calories")
               }
             />
             <HorizontalRuleIcon />
             <input
               type="text"
-              value={Calories[1]}
+              value={MenuCalories[1]}
               onChange={(e) =>
-                HandleChangeCaloriesOrPrice(e.target.value, 1, "Calories")
+                MenuHandleChangeCaloriesOrPrice(e.target.value, 1, "Calories")
               }
             />
           </div>
@@ -101,17 +129,17 @@ function MenuController({
           <div className="inputs-box">
             <input
               type="text"
-              value={Price[0]}
+              value={MenuPrice[0]}
               onChange={(e) =>
-                HandleChangeCaloriesOrPrice(e.target.value, 0, "Price")
+                MenuHandleChangeCaloriesOrPrice(e.target.value, 0, "Price")
               }
             />
             <HorizontalRuleIcon />
             <input
               type="text"
-              value={Price[1]}
+              value={MenuPrice[1]}
               onChange={(e) =>
-                HandleChangeCaloriesOrPrice(e.target.value, 1, "Price")
+                MenuHandleChangeCaloriesOrPrice(e.target.value, 1, "Price")
               }
             />
           </div>
@@ -122,8 +150,13 @@ function MenuController({
             name="Spicy"
             id="Spicy"
             className="CheckSpicyinput"
+            checked={MenuSpicy}
           />
-          <label htmlFor="Spicy" className="CheckSpicy">
+          <label
+            htmlFor="Spicy"
+            className="CheckSpicy"
+            onClick={() => SetMenuSpicy(!MenuSpicy)}
+          >
             Spicy
           </label>
         </div>
@@ -138,9 +171,9 @@ function MenuController({
               type="radio"
               name="Width&length"
               id="16.5-25"
-              checked={Width_length === "16.5-25"}
+              checked={MenuWidth_length === "16.5-25"}
             />
-            <li onClick={() => SetWidth_length("16.5-25")}>
+            <li onClick={() => SetMenuWidth_length("16.5-25")}>
               <label htmlFor="16.5-25">16.5"</label>
               <label htmlFor="16.5-25">25"</label>
             </li>
@@ -148,9 +181,9 @@ function MenuController({
               type="radio"
               name="Width&length"
               id="17.5-26"
-              checked={Width_length === "17.5-26"}
+              checked={MenuWidth_length === "17.5-26"}
             />
-            <li onClick={() => SetWidth_length("17.5-26")}>
+            <li onClick={() => SetMenuWidth_length("17.5-26")}>
               <label htmlFor="17.5-26">17.5"</label>
               <label htmlFor="17.5-26">26"</label>
             </li>
@@ -158,9 +191,9 @@ function MenuController({
               type="radio"
               name="Width&length"
               id="18.5-27"
-              checked={Width_length === "18.5-27"}
+              checked={MenuWidth_length === "18.5-27"}
             />
-            <li onClick={() => SetWidth_length("18.5-27")}>
+            <li onClick={() => SetMenuWidth_length("18.5-27")}>
               <label htmlFor="18.5-27">18.5"</label>
               <label htmlFor="18.5-27">27"</label>
             </li>
@@ -168,13 +201,17 @@ function MenuController({
               type="radio"
               name="Width&length"
               id="19.5-28"
-              checked={Width_length === "19.5-28"}
+              checked={MenuWidth_length === "19.5-28"}
             />
-            <li onClick={() => SetWidth_length("19.5-28")}>
+            <li onClick={() => SetMenuWidth_length("19.5-28")}>
               <label htmlFor="19.5-28">19.5"</label>
               <label htmlFor="19.5-28">28"</label>
             </li>
           </ul>
+        </div>
+        <div className="box search">
+          <button onClick={() => HandleSendData()}>Search</button>
+          <button onClick={() => HandleReset()}>Reset</button>
         </div>
       </div>
     </React.Fragment>
