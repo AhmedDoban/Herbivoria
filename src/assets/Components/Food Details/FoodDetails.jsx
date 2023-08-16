@@ -11,7 +11,7 @@ import Footer from "../Footer/Footer";
 import Waves from "./../Waves/Waves";
 import Testimonios from "../../Auth/Home/Testimonios/Testimonios";
 
-function FoodDetails({ HandleISInCart }) {
+function FoodDetails({ HandleISInCart, scrollToTop }) {
   const Params = useParams();
   const FoodId = useContext(FoodContext);
   const [CurrentFood, SetCureentFood] = useState({});
@@ -107,7 +107,12 @@ function FoodDetails({ HandleISInCart }) {
         <React.Fragment>
           <Waves styleWave="up" />
           {/************************** Start Recommendation *****************************/}
-          <Recommendation HandleISInCart={HandleISInCart} min="40" max="48" />
+          <Recommendation
+            HandleISInCart={HandleISInCart}
+            min="40"
+            max="48"
+            scrollToTop={scrollToTop}
+          />
           {/************************** End Recommendation *****************************/}
           {/************************** Start Testimonios *****************************/}
           <Testimonios />

@@ -69,17 +69,31 @@ function Auth() {
             <Routes>
               <Route
                 path="/"
-                element={<Home HandleISInCart={HandleISInCart} />}
+                element={
+                  <Home
+                    HandleISInCart={HandleISInCart}
+                    scrollToTop={scrollToTop}
+                  />
+                }
               />
               <Route
                 path="/Menu"
                 element={
-                  <Menu SetFood={SetFood} HandleISInCart={HandleISInCart} />
+                  <Menu
+                    SetFood={SetFood}
+                    HandleISInCart={HandleISInCart}
+                    scrollToTop={scrollToTop}
+                  />
                 }
               />
               <Route
                 path="/Details/:id"
-                element={<FoodDetails HandleISInCart={HandleISInCart} />}
+                element={
+                  <FoodDetails
+                    HandleISInCart={HandleISInCart}
+                    scrollToTop={scrollToTop}
+                  />
+                }
               />
               <Route
                 path="/Contact_Us"

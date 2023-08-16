@@ -8,7 +8,13 @@ import { Pagination } from "swiper/modules";
 import "./Recommendation.css";
 import { Link } from "react-router-dom";
 
-function Recommendation({ HandleISInCart, min, max, ActiveBorder }) {
+function Recommendation({
+  HandleISInCart,
+  min,
+  max,
+  ActiveBorder,
+  scrollToTop,
+}) {
   const RecommendationData = useContext(FoodContext);
   const [Slider, SetSlider] = useState(null);
 
@@ -18,13 +24,7 @@ function Recommendation({ HandleISInCart, min, max, ActiveBorder }) {
   const PreviousSlider = () => {
     Slider.slidePrev();
   };
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
+
   return (
     <React.Fragment>
       <div className="Recommendation">

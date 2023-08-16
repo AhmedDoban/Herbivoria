@@ -11,7 +11,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import Recommendation from "../../Components/Recommendation/Recommendation";
 import Testimonios from "../Home/Testimonios/Testimonios";
 
-function Menu({ HandleISInCart }) {
+function Menu({ HandleISInCart, scrollToTop }) {
   const FoodData = useContext(FoodContext);
   const [SeeMore, SetSeeMore] = useState(9);
   const [StyleCard, SetStyleCard] = useState("Grid");
@@ -23,13 +23,6 @@ function Menu({ HandleISInCart }) {
   const [Width_length, SetWidth_length] = useState("16.5-25");
   const [Spicy, SetSpicy] = useState(false);
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
   const HandelNextNavigation = () => {
     if (
       FoodType === "" &&
@@ -242,6 +235,7 @@ function Menu({ HandleISInCart }) {
         min="58"
         max="68"
         ActiveBorder={true}
+        scrollToTop={scrollToTop}
       />
       {/************************** End Recommendation *****************************/}
       {/************************** Testimonios *****************************/}

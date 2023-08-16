@@ -139,6 +139,15 @@
   z-index: 1;
   transform: rotateY(150deg) translateX(-150px);
 }
+.dishes .container .box .Content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
 .dishes .container .box img {
   position: relative;
   width: 100%;

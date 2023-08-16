@@ -8,7 +8,7 @@ import Reservation from "./Reservation/Reservation";
 import Testimonios from "./Testimonios/Testimonios";
 import Recommendation from "../../Components/Recommendation/Recommendation";
 
-function Home({ HandleISInCart }) {
+function Home({ HandleISInCart, scrollToTop }) {
   return (
     <React.Fragment>
       <div className="home">
@@ -19,7 +19,7 @@ function Home({ HandleISInCart }) {
         {/*=========================================================
         # Dishes
          =========================================================*/}
-        <Dishes HandleISInCart={HandleISInCart} />
+        <Dishes HandleISInCart={HandleISInCart} scrollToTop={scrollToTop} />
         {/*=========================================================
          # Recommendation
         =========================================================*/}
@@ -28,6 +28,7 @@ function Home({ HandleISInCart }) {
           min="0"
           max="8"
           ActiveBorder={true}
+          scrollToTop={scrollToTop}
         />
         {/*=========================================================
          # Our features 

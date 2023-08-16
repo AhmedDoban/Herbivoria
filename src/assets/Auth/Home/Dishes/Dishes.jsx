@@ -3,7 +3,7 @@ import "./Dishes.css";
 import { FoodContext } from "../../Auth";
 import { Link } from "react-router-dom";
 
-function Dishes({ HandleISInCart }) {
+function Dishes({ HandleISInCart, scrollToTop }) {
   const DishesData = useContext(FoodContext);
 
   return (
@@ -18,16 +18,23 @@ function Dishes({ HandleISInCart }) {
             {DishesData.filter((dish) => dish.type === "Dishes")
               .slice(0, 8)
               .map((dish) => (
-                <Link className="box" key={dish.id} to={`/Details/${dish.id}`}>
+                <div className="box" key={dish.id}>
                   <i className="fa-regular fa-heart Favorite-ele" />
                   <div className="price">{dish.price} $</div>
-                  <img src={dish.img} alt="fries_Salade" />
-                  <h5>
-                    {dish.name.length > 10
-                      ? `${dish.name.slice(0, 10) + `...`}`
-                      : dish.name}
-                  </h5>
-                  <p>{dish.Details.slice(0, 50)}...</p>
+                  <Link
+                    className="Content"
+                    to={`/Details/${dish.id}`}
+                    onClick={() => scrollToTop()}
+                  >
+                    <img src={dish.img} alt="fries_Salade" />
+                    <h5>
+                      {dish.name.length > 10
+                        ? `${dish.name.slice(0, 10) + `...`}`
+                        : dish.name}
+                    </h5>
+                    <p>{dish.Details.slice(0, 50)}...</p>
+                  </Link>
+
                   <button
                     className={dish.isInCart ? "btn active" : "btn"}
                     onClick={() => HandleISInCart(dish.id)}
@@ -35,7 +42,7 @@ function Dishes({ HandleISInCart }) {
                     <span> Oreder now</span>
                     <i className="fa-solid fa-cart-plus" />
                   </button>
-                </Link>
+                </div>
               ))}
           </div>
         </div>
