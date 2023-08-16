@@ -5,6 +5,7 @@ import OurResturant from "./Our Resturant/OurResturant";
 import Status from "./Status/Status";
 import Events from "./Events/Events";
 import OurChefs from "./Our Chefs/OurChefs";
+import OurGallery from "./Our Gallery/OurGallery";
 
 function AboutUs() {
   return (
@@ -25,6 +26,9 @@ function AboutUs() {
         {/************************** Start Chefs*****************************/}
         <OurChefs />
         {/************************** End Chefs *****************************/}
+        {/************************** Start Gallery*****************************/}
+        <OurGallery />
+        {/************************** End Gallery *****************************/}
         {/************************** Start Footer *****************************/}
         <Footer />
         {/************************** End Footer*****************************/}
