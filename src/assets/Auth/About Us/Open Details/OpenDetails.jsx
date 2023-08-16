@@ -22,13 +22,13 @@ function OpenDetails() {
       <div className="OpenDetails">
         <div className="container" data-aos="fade-up">
           <div className="head">
-            <p>COME ON IN</p>
+            <p>Come on in</p>
             <h1>We're Open</h1>
           </div>
           <div className="card">
             <ul>
               {days.map((day) => (
-                <li className={day.active ? "active" : ""}>
+                <li className={day.active ? "active" : ""} key={day.name}>
                   <span>{day.name}</span>
                   <span>{day.time}</span>
                 </li>
