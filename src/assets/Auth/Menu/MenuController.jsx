@@ -41,6 +41,9 @@ function MenuController({
     SetMenuSpicy(false);
     SetMenuPrice([0, 1000]);
     SetMenuWidth_length("16.5-25");
+    SetCalories([0, 1000]);;
+    SetPrice([0, 1000]);
+    SetSpicy(false);
   };
   return (
     <React.Fragment>
