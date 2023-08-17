@@ -2,11 +2,25 @@ import React, { useContext, useEffect, useState } from "react";
 import Footer from "../../Components/Footer/Footer";
 import "./Cart.css";
 import { FoodContext } from "../Auth";
+import Select from "react-dropdown-select";
 
 function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
   const InCartFood = useContext(FoodContext);
   const [Subtotal, SetSubtotal] = useState(0);
   const [TotalPrice, SetTotalPrice] = useState(0);
+  const [Address, SetAddress] = useState("");
+  const [time_arrive, Settime_arrive] = useState(false);
+
+  const AddressData = [
+    {
+      value: "Bohemia, NY 11716",
+      label: "Bohemia, NY 11716",
+    },
+    {
+      value: "Columbia, SC 29204",
+      label: "Columbia, SC 29204",
+    },
+  ];
 
   const CountPrice = () => {
     let Price = 0;
@@ -36,12 +50,12 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
               <h1>Contact information</h1>
               <div className="input-container">
                 <div className="input-box">
-                  <label htmlFor="Name">Name</label>
                   <input type="text" placeholder="Alica Simpson" />
+                  <label htmlFor="Name">Name</label>
                 </div>
                 <div className="input-box">
-                  <label htmlFor="Name">Phone</label>
                   <input type="Phone" placeholder="+ (987) 000 654 321 " />
+                  <label htmlFor="Name">Phone</label>
                 </div>
               </div>
             </div>
@@ -58,7 +72,76 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
                   <label htmlFor="Delivery">Delivery</label>
                 </div>
               </div>
-              <div className="input-box"></div>
+              <div className="Select-box">
+                <label htmlFor="Address">Select Address from your Saved</label>
+                <Select
+                  options={AddressData}
+                  onChange={(values) => SetAddress(values)}
+                  placeholder="Select Address"
+                />
+              </div>
+              <div className="input-box">
+                <input
+                  type="text"
+                  id="Addressdelivery"
+                  placeholder="Enter your delivery address"
+                />
+                <label htmlFor="Addressdelivery">Address *</label>
+              </div>
+              <div className="input-container">
+                <div className="input-box">
+                  <input
+                    type="text"
+                    placeholder="Example: Flat #12"
+                    id="Apartment / Office*"
+                  />
+                  <label htmlFor="Apartment / Office*">
+                    Apartment / Office*
+                  </label>
+                </div>
+                <div className="input-box">
+                  <input type="text" placeholder="Example: 3 " id="Floor" />
+                  <label htmlFor="Floor">Floor</label>
+                </div>
+              </div>
+            </div>
+            {/*****************************3'nd Box******************************/}
+            <div className="box">
+              <h1>Delivery Time</h1>
+              <div className="input-container">
+                <div className="input-check">
+                  <input
+                    type="radio"
+                    name="time_arrive"
+                    id="Soon"
+                    checked={time_arrive ? false : true}
+                  />
+                  <label htmlFor="Soon" onClick={() => Settime_arrive(false)}>
+                    As Soon as possible
+                  </label>
+                </div>
+                <div className="input-check">
+                  <input
+                    type="radio"
+                    name="time_arrive"
+                    id="Time"
+                    checked={time_arrive ? true : false}
+                  />
+                  <label htmlFor="Time" onClick={() => Settime_arrive(true)}>
+                    Select Time
+                  </label>
+                </div>
+              </div>
+              {time_arrive ? (
+                <div className="input-box">
+                  <input
+                    type="time"
+                    placeholder="Enter Time "
+                    id="timeArrive"
+                  />
+                  <label htmlFor="timeArrive">Time Arrive</label>
+                </div>
+              ) : null}
             </div>
           </div>
           {/***************************** Right ******************************/}
