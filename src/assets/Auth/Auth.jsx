@@ -7,6 +7,7 @@ import { FoodData } from "../Data/Food";
 import FoodDetails from "../Components/Food Details/FoodDetails";
 import ContactUs from "./Contact Us/ContactUs";
 import AboutUs from "./About Us/AboutUs";
+import Cart from "./Cart/Cart";
 
 export const FoodContext = createContext();
 function Auth() {
@@ -47,6 +48,42 @@ function Auth() {
     SetFood(Data);
   };
 
+  const HandleIncrement = (id) => {
+    const Data = [...Food];
+    let indexNumber = -1;
+    Data.map((item, index) => (item.id === id ? (indexNumber = index) : null));
+    let Count = Data[indexNumber].count;
+    Count++;
+    Data[indexNumber] = {
+      ...Data[indexNumber],
+      count: Count,
+    };
+
+    SetFood(Data);
+  };
+  const HandleDecrement = (id) => {
+    const Data = [...Food];
+    let indexNumber = -1;
+    Data.map((item, index) => (item.id === id ? (indexNumber = index) : null));
+    let Count = Data[indexNumber].count;
+    Count--;
+
+    if (Count <= 0) {
+      Count = 0;
+      Data[indexNumber] = {
+        ...Data[indexNumber],
+        count: Count,
+      };
+      SetFood(Data);
+      return;
+    }
+    Data[indexNumber] = {
+      ...Data[indexNumber],
+      count: Count,
+    };
+    SetFood(Data);
+  };
+
   return (
     <React.Fragment>
       <div className="auth">
@@ -54,7 +91,7 @@ function Auth() {
            # Navbar 
           =========================================================*/}
         <FoodContext.Provider value={Food}>
-          <Navbar />
+          <Navbar scrollToTop={scrollToTop} />
         </FoodContext.Provider>
         {/*=========================================================
            # Pages Routes 
@@ -100,6 +137,16 @@ function Auth() {
                 element={<ContactUs HandleISInCart={HandleISInCart} />}
               />
               <Route path="/About_Us" element={<AboutUs />} />
+              <Route
+                path="/Cart"
+                element={
+                  <Cart
+                    HandleISInCart={HandleISInCart}
+                    HandleIncrement={HandleIncrement}
+                    HandleDecrement={HandleDecrement}
+                  />
+                }
+              />
             </Routes>
           </FoodContext.Provider>
         </div>

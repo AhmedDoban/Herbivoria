@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { FoodContext } from "../../Auth/Auth";
 
-function Navbar() {
+function Navbar({ scrollToTop }) {
   const IsInCartCounter = useContext(FoodContext);
   const [MenuMobileActive, SetMenuMobileActive] = useState(false);
   const [Count, SetCount] = useState(0);
@@ -12,14 +12,6 @@ function Navbar() {
     IsInCartCounter.map((item) => (item.isInCart ? Counter++ : null));
     SetCount(Counter);
   }, [IsInCartCounter]);
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  };
 
   return (
     <React.Fragment>
@@ -73,7 +65,7 @@ function Navbar() {
               alt="user"
               className="Avatar"
             />
-            <Link className="cart-item">
+            <Link className="cart-item" to="Cart">
               <img src={require("../../imgs/cart.svg").default} alt="Cart" />
               <div className="count">{Count}</div>
             </Link>
