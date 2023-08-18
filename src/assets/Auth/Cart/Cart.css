@@ -110,13 +110,12 @@
 }
 .Cart .container .left .box .input-check label {
   position: relative;
-  padding: 10px 15px 10px 50px;
+  padding: 10px 0px 10px 30px;
   transition: var(--main-transition);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  text-align: center;
   font-weight: bold;
   width: 100%;
 }
@@ -130,8 +129,7 @@
   height: 15px;
   border-radius: 50%;
   border: 2px solid var(--bg-color);
-  left: 15px;
-  top: 25%;
+  left: 0px;
   font-size: 11px;
   transition: var(--main-transition);
   transform: rotate(360deg);
