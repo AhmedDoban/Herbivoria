@@ -202,7 +202,7 @@ function Menu({ HandleISInCart, scrollToTop }) {
                 <Player
                   autoplay
                   loop
-                  src="https://lottie.host/70bf22c7-e625-4c64-9f13-157293c9d026/HXnG9E9Bhf.json"
+                  src="https://lottie.host/593ba6a9-716f-43b6-908a-2c48b99d0b40/e6Bkgj0XMe.json"
                   style={{ height: "300px", width: "300px" }}
                 />
                 <p>Sorry We Couldn't Find what are searching for</p>

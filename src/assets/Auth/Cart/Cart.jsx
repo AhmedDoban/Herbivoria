@@ -3,6 +3,9 @@ import Footer from "../../Components/Footer/Footer";
 import "./Cart.css";
 import { FoodContext } from "../Auth";
 import Select from "react-dropdown-select";
+import { Player } from "@lottiefiles/react-lottie-player";
+import Cards from "react-credit-cards-2";
+import "react-credit-cards-2/dist/es/styles-compiled.css";
 
 function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
   const InCartFood = useContext(FoodContext);
@@ -10,6 +13,24 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
   const [TotalPrice, SetTotalPrice] = useState(0);
   const [Address, SetAddress] = useState("");
   const [time_arrive, Settime_arrive] = useState(false);
+  const [Payment_Method, SetPayment_Method] = useState(true);
+
+  const [PaymentCard, SetPaymentCard] = useState({
+    Card_Number: "",
+    Card_Expiry: "",
+    Card_CVV: "",
+    Card_Name: "",
+    focus: "",
+  });
+
+  const handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+    SetPaymentCard((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleInputFocus = (evt) => {
+    SetPaymentCard((prev) => ({ ...prev, focus: evt.target.name }));
+  };
 
   const AddressData = [
     {
@@ -143,64 +164,269 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
                 </div>
               ) : null}
             </div>
+            <div className="box">
+              <h1>Payment Method</h1>
+              <div className="input-container">
+                <div className="input-check">
+                  <input
+                    type="radio"
+                    name="Payment Method"
+                    id="Cash"
+                    checked={Payment_Method ? false : true}
+                  />
+                  <label
+                    htmlFor="Cash"
+                    onClick={() => SetPayment_Method(false)}
+                  >
+                    Cash
+                  </label>
+                </div>
+                <div className="input-check">
+                  <input
+                    type="radio"
+                    name="Payment Method"
+                    id="Online Payment"
+                    checked={Payment_Method ? true : false}
+                  />
+                  <label
+                    htmlFor="Online Payment"
+                    onClick={() => SetPayment_Method(true)}
+                  >
+                    Online Payment
+                  </label>
+                </div>
+              </div>
+              {Payment_Method ? (
+                <React.Fragment>
+                  <div className="box">
+                    <Cards
+                      number={PaymentCard.Card_Number}
+                      expiry={PaymentCard.Card_Expiry}
+                      cvc={PaymentCard.cvc}
+                      name={PaymentCard.Card_Name}
+                      focused={PaymentCard.focus}
+                    />
+                  </div>
+                  <div className="payment-box">
+                    <div className="input-container">
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="Strip" />
+                        <label htmlFor="Strip">
+                          <img
+                            src={require("../../imgs/payment/pay(1).png")}
+                            alt="Strip"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="Visa" />
+                        <label htmlFor="Visa">
+                          <img
+                            src={require("../../imgs/payment/pay(2).png")}
+                            alt="Visa"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="master" />
+                        <label htmlFor="master">
+                          <img
+                            src={require("../../imgs/payment/pay(3).png")}
+                            alt="master"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="amazon" />
+                        <label htmlFor="amazon">
+                          <img
+                            src={require("../../imgs/payment/pay(4).png")}
+                            alt="amazon"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="klarna" />
+                        <label htmlFor="klarna">
+                          <img
+                            src={require("../../imgs/payment/pay(5).png")}
+                            alt="klarna"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="paypal" />
+                        <label htmlFor="paypal">
+                          <img
+                            src={require("../../imgs/payment/pay(6).png")}
+                            alt="paypal"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="applepay" />
+                        <label htmlFor="applepay">
+                          <img
+                            src={require("../../imgs/payment/pay(7).png")}
+                            alt="applepay"
+                          />
+                        </label>
+                      </div>
+                      <div className="input-check">
+                        <input type="radio" name="payment" id="Gppglepay" />
+                        <label htmlFor="Gppglepay">
+                          <img
+                            src={require("../../imgs/payment/pay(8).png")}
+                            alt="Gppglepay"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="input-container">
+                    <div className="input-box">
+                      <input
+                        type="tel"
+                        placeholder="0000 0000 0000 0000"
+                        maxlength="19"
+                        id="Card Number"
+                        name="Card_Number"
+                        value={PaymentCard.Card_Number}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                      />
+                      <label htmlFor="Card Number">Card Number</label>
+                    </div>
+                    <div className="input-box">
+                      <input
+                        type="text"
+                        placeholder="Enter Your name here"
+                        id="Name on Card"
+                        value={PaymentCard.Card_Name}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        name="Card_Name"
+                      />
+                      <label htmlFor="Name on Card">Name on Card</label>
+                    </div>
+                  </div>
+                  <div className="input-container">
+                    <div className="input-box">
+                      <input
+                        type="text"
+                        placeholder="MM / YY"
+                        maxlength="5"
+                        id="Expiry Date"
+                        value={PaymentCard.Card_Expiry}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        name="Card_Expiry"
+                      />
+                      <label htmlFor="Expiry Date">Expiry Date</label>
+                    </div>
+                    <div className="input-box">
+                      <input
+                        type="text"
+                        placeholder="---"
+                        maxlength="3"
+                        id="CVV"
+                        value={PaymentCard.cvc}
+                        onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        name="Card_CVV"
+                      />
+                      <label htmlFor="CVV">CVV</label>
+                    </div>
+                  </div>
+                  <div className="add-save">
+                    <label className="input-togle" htmlFor="SaveCard">
+                      <input type="checkbox" id="SaveCard" />
+                      <div class="toggle-switch"></div>
+                      <span>Save this Card</span>
+                    </label>
+                    <button>
+                      <i className="fa-solid fa-plus" />
+                      <span>Add another</span>
+                    </button>
+                  </div>
+                </React.Fragment>
+              ) : null}
+            </div>
           </div>
           {/***************************** Right ******************************/}
           <div className="right">
-            {/***************************** Orders ******************************/}
-            <div className="order">
-              <p>Order Summary</p>
-              {InCartFood.filter((Food) => Food.isInCart).map((food) => (
-                <div className="food-box" key={food.id}>
-                  <i
-                    className="fa-solid fa-trash"
-                    onClick={() => HandleISInCart(food.id)}
-                  />
-                  <div className="food-box-left">
-                    <div className="img-box">
-                      <img src={food.img} alt={food.name} />
+            {InCartFood.filter((Food) => Food.isInCart).length > 0 ? (
+              <React.Fragment>
+                {/***************************** Orders ******************************/}
+                <div className="order">
+                  <p>Order Summary</p>
+                  {InCartFood.filter((Food) => Food.isInCart).map((food) => (
+                    <div className="food-box" key={food.id}>
+                      <i
+                        className="fa-solid fa-trash"
+                        onClick={() => HandleISInCart(food.id)}
+                      />
+                      <div className="food-box-left">
+                        <div className="img-box">
+                          <img src={food.img} alt={food.name} />
+                        </div>
+                        <div className="data">
+                          <h5>{food.name}</h5>
+                          <p className="price">{food.price}$</p>
+                        </div>
+                      </div>
+                      <div className="food-box-right">
+                        <div className="actions">
+                          <button onClick={() => HandleDecrement(food.id)}>
+                            -
+                          </button>
+                          <p className="Count">{food.count}</p>
+                          <button onClick={() => HandleIncrement(food.id)}>
+                            +
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div className="data">
-                      <h5>{food.name}</h5>
-                      <p className="price">{food.price}$</p>
-                    </div>
+                  ))}
+                </div>
+                {/***************************** Total Price ******************************/}
+                <div className="total-price">
+                  <div className="box">
+                    <p>Subtotal :</p>
+                    <span>{Subtotal} $</span>
                   </div>
-                  <div className="food-box-right">
-                    <div className="actions">
-                      <button onClick={() => HandleDecrement(food.id)}>
-                        -
-                      </button>
-                      <p className="Count">{food.count}</p>
-                      <button onClick={() => HandleIncrement(food.id)}>
-                        +
-                      </button>
-                    </div>
+                  <div className="box">
+                    <p>Shipping :</p>
+                    <span>3.67 $</span>
                   </div>
                 </div>
-              ))}
-            </div>
-            {/***************************** Total Price ******************************/}
-            <div className="total-price">
-              <div className="box">
-                <p>Subtotal :</p>
-                <span>{Subtotal} $</span>
-              </div>
-              <div className="box">
-                <p>Shipping :</p>
-                <span>3.67 $</span>
-              </div>
-            </div>
-            {/***************************** Final Price ******************************/}
-            <div className="final-price">
-              <div className="box">
-                <p>Total :</p>
-                <span>{TotalPrice} $</span>
-              </div>
-              <button>Make Payment</button>
-              <p>
-                By placing your order, you agree to Terms of use and Privacy
-                agreement
-              </p>
-            </div>
+                {/***************************** Final Price ******************************/}
+                <div className="final-price">
+                  <div className="box">
+                    <p>Total :</p>
+                    <span>{TotalPrice} $</span>
+                  </div>
+                  <button>Make Payment</button>
+                  <p>
+                    By placing your order, you agree to Terms of use and Privacy
+                    agreement
+                  </p>
+                </div>
+              </React.Fragment>
+            ) : (
+              <React.Fragment>
+                <div className="no-items">
+                  <Player
+                    autoplay
+                    loop
+                    src="https://lottie.host/6ee725b6-9c5f-4fe0-aa44-85e012cd1b6b/NFWzJ4AAg6.json"
+                    style={{ height: "300px", width: "300px" }}
+                  />
+                  <p>Cart is empty </p>
+                </div>
+              </React.Fragment>
+            )}
           </div>
         </div>
       </div>
