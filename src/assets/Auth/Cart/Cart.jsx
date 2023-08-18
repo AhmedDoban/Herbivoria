@@ -6,6 +6,11 @@ import Select from "react-dropdown-select";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Cards from "react-credit-cards-2";
 import "react-credit-cards-2/dist/es/styles-compiled.css";
+import {
+  formatCreditCardNumber,
+  formatCVC,
+  formatExpirationDate,
+} from "./payment";
 
 function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
   const InCartFood = useContext(FoodContext);
@@ -18,13 +23,22 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
   const [PaymentCard, SetPaymentCard] = useState({
     Card_Number: "",
     Card_Expiry: "",
-    Card_CVV: "",
+    Card_CVC: "",
     Card_Name: "",
     focus: "",
   });
 
   const handleInputChange = (evt) => {
-    const { name, value } = evt.target;
+    let { name, value } = evt.target;
+
+    if (name === "Card_Number") {
+      value = formatCreditCardNumber(value);
+    } else if (name === "Card_Expiry") {
+      value = formatExpirationDate(value);
+    } else if (name === "Card_CVC") {
+      value = formatCVC(value);
+    }
+
     SetPaymentCard((prev) => ({ ...prev, [name]: value }));
   };
 
@@ -63,7 +77,7 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
   return (
     <React.Fragment>
       <div className="Cart">
-        <div className="container">
+        <div className="container" data-aos="fade-up">
           {/***************************** left ******************************/}
           <div className="left">
             {/*****************************First Box******************************/}
@@ -202,7 +216,7 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
                     <Cards
                       number={PaymentCard.Card_Number}
                       expiry={PaymentCard.Card_Expiry}
-                      cvc={PaymentCard.cvc}
+                      cvc={PaymentCard.Card_CVC}
                       name={PaymentCard.Card_Name}
                       focused={PaymentCard.focus}
                     />
@@ -295,6 +309,7 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
                         value={PaymentCard.Card_Number}
                         onChange={handleInputChange}
                         onFocus={handleInputFocus}
+                        pattern="[\d| ]{16,22}"
                       />
                       <label htmlFor="Card Number">Card Number</label>
                     </div>
@@ -314,7 +329,7 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
                   <div className="input-container">
                     <div className="input-box">
                       <input
-                        type="text"
+                        type="tel"
                         placeholder="MM / YY"
                         maxlength="5"
                         id="Expiry Date"
@@ -322,21 +337,22 @@ function Cart({ HandleISInCart, HandleDecrement, HandleIncrement }) {
                         onChange={handleInputChange}
                         onFocus={handleInputFocus}
                         name="Card_Expiry"
+                        pattern="\d\d/\d\d"
                       />
                       <label htmlFor="Expiry Date">Expiry Date</label>
                     </div>
                     <div className="input-box">
                       <input
-                        type="text"
-                        placeholder="---"
-                        maxlength="3"
-                        id="CVV"
-                        value={PaymentCard.cvc}
+                        type="tel"
+                        placeholder="***"
+                        id="CVC"
+                        value={PaymentCard.Card_CVC}
                         onChange={handleInputChange}
                         onFocus={handleInputFocus}
-                        name="Card_CVV"
+                        name="Card_CVC"
+                        pattern="\d{3,4}"
                       />
-                      <label htmlFor="CVV">CVV</label>
+                      <label htmlFor="CVC">CVC</label>
                     </div>
                   </div>
                   <div className="add-save">
