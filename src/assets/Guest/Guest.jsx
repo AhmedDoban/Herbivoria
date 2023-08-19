@@ -6,13 +6,13 @@ const Login = lazy(() => import("./Login/Login"));
 const Register = lazy(() => import("./Register/Register"));
 const NotFounded = lazy(() => import("../Components/Not Founded/NotFounded"));
 
-function Guest() {
+function Guest({ SetAuthLogin }) {
   return (
     <React.Fragment>
       <div className="Guest">
         <Suspense fallback={<Loading />}>
           <Routes>
-            <Route path="" element={<Login />} />
+            <Route path="" element={<Login SetAuthLogin={SetAuthLogin} />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<NotFounded style={`full`} />} />
           </Routes>

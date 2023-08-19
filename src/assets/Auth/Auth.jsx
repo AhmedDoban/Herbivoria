@@ -15,7 +15,7 @@ const Cart = lazy(() => import("./Cart/Cart"));
 const NotFounded = lazy(() => import("../Components/Not Founded/NotFounded"));
 
 export const FoodContext = createContext();
-function Auth() {
+function Auth({ SetAuthLogin }) {
   const [Food, SetFood] = useState(FoodData);
   const back_to_top_btn = useRef();
 
@@ -89,6 +89,11 @@ function Auth() {
     SetFood(Data);
   };
 
+  const HandleLogout = () => {
+    localStorage.clear();
+    SetAuthLogin(false);
+  };
+
   return (
     <React.Fragment>
       <div className="auth">
@@ -96,7 +101,7 @@ function Auth() {
            # Navbar 
           =========================================================*/}
         <FoodContext.Provider value={Food}>
-          <Navbar scrollToTop={scrollToTop} />
+          <Navbar scrollToTop={scrollToTop} HandleLogout={HandleLogout} />
         </FoodContext.Provider>
         {/*=========================================================
            # Pages Routes 

@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { FoodContext } from "../../Auth/Auth";
 
-function Navbar({ scrollToTop }) {
+function Navbar({ scrollToTop, HandleLogout }) {
   const IsInCartCounter = useContext(FoodContext);
   const [MenuMobileActive, SetMenuMobileActive] = useState(false);
   const [Count, SetCount] = useState(0);
@@ -69,7 +69,10 @@ function Navbar({ scrollToTop }) {
               <img src={require("../../imgs/cart.svg").default} alt="Cart" />
               <div className="count">{Count}</div>
             </Link>
-            <i className="fa-solid fa-right-from-bracket logout" />
+            <i
+              className="fa-solid fa-right-from-bracket logout"
+              onClick={() => HandleLogout()}
+            />
             <i
               className="fa-solid fa-bars nav-mobile"
               onClick={() => SetMenuMobileActive(!MenuMobileActive)}

@@ -2,7 +2,11 @@ import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Login({ SetAuthLogin }) {
+  const HandleLogin = () => {
+    localStorage.setItem("Herbivoria-login", true);
+    SetAuthLogin(true);
+  };
   return (
     <React.Fragment>
       <div className="login">
@@ -31,7 +35,7 @@ function Login() {
               <Link to="">Forget password ?</Link>
             </div>
             <div className="input-card">
-              <button>Sign In</button>
+              <button onClick={() => HandleLogin()}>Sign In</button>
             </div>
             <div className="content">
               <p>
