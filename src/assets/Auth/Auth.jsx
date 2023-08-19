@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import Loading from "../Components/Loading/Loading";
 import { FoodData } from "../Data/Food";
-import NotFounded from "../Components/Not Founded/NotFounded";
+
 const Home = lazy(() => import("./Home/Home"));
 const Menu = lazy(() => import("./Menu/Menu"));
 const FoodDetails = lazy(() =>
@@ -12,6 +12,7 @@ const FoodDetails = lazy(() =>
 const ContactUs = lazy(() => import("./Contact Us/ContactUs"));
 const AboutUs = lazy(() => import("./About Us/AboutUs"));
 const Cart = lazy(() => import("./Cart/Cart"));
+const NotFounded = lazy(() => import("../Components/Not Founded/NotFounded"));
 
 export const FoodContext = createContext();
 function Auth() {
