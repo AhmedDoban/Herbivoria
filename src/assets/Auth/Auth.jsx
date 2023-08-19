@@ -1,5 +1,5 @@
 import React, { createContext, useRef, useState, lazy, Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import Loading from "../Components/Loading/Loading";
 import { FoodData } from "../Data/Food";
@@ -18,6 +18,7 @@ export const FoodContext = createContext();
 function Auth({ SetAuthLogin }) {
   const [Food, SetFood] = useState(FoodData);
   const back_to_top_btn = useRef();
+  const Navigate = useNavigate();
 
   /*************************************************
    # Scroll Events
@@ -93,6 +94,7 @@ function Auth({ SetAuthLogin }) {
     sessionStorage.clear();
     localStorage.clear();
     SetAuthLogin(false);
+    Navigate("/");
   };
 
   return (
