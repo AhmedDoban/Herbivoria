@@ -2,15 +2,19 @@ import React from "react";
 import "./Login.css";
 import { Link } from "react-router-dom";
 
-function Login({ SetAuthLogin }) {
+function Login({ SetAuthLogin, Remember, SetRemember }) {
   const HandleLogin = () => {
-    localStorage.setItem("Herbivoria-login", true);
+    if (Remember) {
+      localStorage.setItem("Herbivoria-login", true);
+    } else {
+      sessionStorage.setItem("Herbivoria-login", true);
+    }
     SetAuthLogin(true);
   };
   return (
     <React.Fragment>
       <div className="login">
-        <div className="left">
+        <div className="left" data-aos="zoom-in">
           <div className="content">
             <h2>Herbivoria</h2>
             <h5>Let's make your Order</h5>
@@ -29,7 +33,12 @@ function Login({ SetAuthLogin }) {
             </div>
             <div className="input-remember">
               <div className="input-check">
-                <input type="checkbox" id="remember" />
+                <input
+                  type="checkbox"
+                  id="remember"
+                  checked={Remember}
+                  onChange={() => SetRemember(!Remember)}
+                />
                 <label htmlFor="remember">Remember me</label>
               </div>
               <Link to="">Forget password ?</Link>
@@ -45,7 +54,7 @@ function Login({ SetAuthLogin }) {
           </div>
         </div>
         <div className="right">
-          <img src={require("../../imgs/login.avif")} alt="login" />
+          <img src={require("../../imgs/resturant.jpg")} alt="login" />
         </div>
       </div>
     </React.Fragment>

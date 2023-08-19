@@ -90,6 +90,7 @@ function Auth({ SetAuthLogin }) {
   };
 
   const HandleLogout = () => {
+    sessionStorage.clear();
     localStorage.clear();
     SetAuthLogin(false);
   };

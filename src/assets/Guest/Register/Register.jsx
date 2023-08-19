@@ -6,7 +6,7 @@ function Register() {
   return (
     <React.Fragment>
       <div className="register">
-        <div className="left">
+        <div className="left" data-aos="zoom-in">
           <div className="content">
             <h2>Herbivoria</h2>
             <h5>Let's make your Account</h5>
@@ -55,7 +55,7 @@ function Register() {
           </div>
         </div>
         <div className="right">
-          <img src={require("../../imgs/login.avif")} alt="login" />
+          <img src={require("../../imgs/resturant.jpg")} alt="login" />
         </div>
       </div>
     </React.Fragment>

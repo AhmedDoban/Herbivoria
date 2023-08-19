@@ -147,12 +147,12 @@
   height: 17px;
   transition: var(--main-transition);
   transform-origin: center center;
-  scale: 0;
+  transform: scale(0) rotate(360deg);
   background-color: var(--gray-color);
 }
 .register .left .input-policy .input-check input:checked + label::after {
   content: "\f00c";
-  scale: 1;
+  transform: scale(1) rotate(0);
   background-color: var(--red-color);
 }
 .register .left .content .input-card button {
