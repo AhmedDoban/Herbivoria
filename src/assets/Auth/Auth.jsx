@@ -153,7 +153,7 @@ function Auth() {
                     />
                   }
                 />
-                <Route path="*" element={<NotFounded />} />
+                <Route path="*" element={<NotFounded style={`auto`} />} />
               </Routes>
             </FoodContext.Provider>
           </Suspense>

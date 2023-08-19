@@ -3,11 +3,11 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { useNavigate } from "react-router-dom";
 import "./NotFounded.css";
 
-function NotFounded() {
+function NotFounded({ style }) {
   const navigate = useNavigate();
   return (
     <React.Fragment>
-      <div className="NotFounded">
+      <div className={`NotFounded ${style}`}>
         <div className="container">
           <Player
             autoplay={true}

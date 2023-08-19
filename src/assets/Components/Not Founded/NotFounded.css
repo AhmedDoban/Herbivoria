@@ -9,6 +9,9 @@
   display: flex;
   justify-content: center;
 }
+.NotFounded.full {
+  height: 100vh;
+}
 .NotFounded .container {
   display: flex;
   justify-content: center;
