@@ -3,6 +3,7 @@ import { Route, Routes, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar/Navbar";
 import Loading from "../Components/Loading/Loading";
 import { FoodData } from "../Data/Food";
+import { toast } from "react-toastify";
 
 const Home = lazy(() => import("./Home/Home"));
 const Menu = lazy(() => import("./Menu/Menu"));
@@ -95,6 +96,16 @@ function Auth({ SetAuthLogin }) {
     localStorage.clear();
     SetAuthLogin(false);
     Navigate("/");
+    toast.success("Successfully Logout!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
   };
 
   return (
