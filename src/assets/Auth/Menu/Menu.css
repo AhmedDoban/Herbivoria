@@ -584,9 +584,15 @@
 .menu-food .container .nav-seemore {
   position: relative;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   gap: 15px;
+  width: 100%;
   align-items: center;
+}
+.menu-food .container .nav-seemore .nav-Bullets-numbers {
+  position: relative;
+  display: flex;
+  gap: 10px;
 }
 .menu-food .container .nav-seemore button {
   width: 35px;
@@ -596,9 +602,19 @@
   align-items: center;
   border-radius: 8px;
   border: 0;
-  transition: var(--main-transition);
   cursor: pointer;
   color: var(--white-color);
+  background-color: var(--gray-color);
+  transition: var(--main-transition);
+  box-shadow: var(--main-box-shadow);
+}
+.menu-food .container .nav-seemore button.active {
+  background-color: var(--red-color);
+  box-shadow: var(--main-box-shadow-red);
+}
+
+.menu-food .container .nav-seemore button:hover,
+.menu-food .container .nav-seemore .nav-Bullets-numbers button.active {
   background-color: var(--red-color);
   box-shadow: var(--main-box-shadow-red);
 }
