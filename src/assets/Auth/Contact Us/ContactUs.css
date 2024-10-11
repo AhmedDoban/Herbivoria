@@ -51,8 +51,9 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--red-color);
-  text-shadow: var(--main-text-shadow-red);
+  color: var(--purple-color);
+  text-shadow: var(--main-text-shadow);
+  font-weight: 600;
 }
 
 .ContactUs .container .left p {
@@ -97,7 +98,7 @@
 .ContactUs .container .contact-box i {
   width: 35px;
   height: 35px;
-  background-color: var(--red-color);
+  background-color: var(--purple-color);
   box-shadow: var(--main-text-shadow);
   color: var(--white-color);
   border-radius: 50%;

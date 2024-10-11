@@ -49,7 +49,7 @@
   transition: var(--main-transition);
 }
 .footer .container .box .content-box a:hover {
-  color: var(--orange-color);
+  color: var(--purple-color);
   padding-left: 10px;
 }
 .footer .container .box .content-box .contact {

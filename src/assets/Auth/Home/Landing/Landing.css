@@ -54,12 +54,21 @@
   position: relative;
   font-size: 50px;
   text-shadow: var(--main-text-shadow);
-  color: var(--orange-color);
+  color: var(--purple-color);
+  font-weight: 600;
+  line-height: 1;
+  font-family: Rubik;
+}
+.landing .container .left h1 p {
+  line-height: 1.1;
+  font-family: Rubik;
 }
 .landing .container .left p {
   position: relative;
   line-height: 2;
   letter-spacing: 1px;
+  font-family: Rubik;
+  font-weight: 400;
 }
 .landing .container .left .actions {
   position: relative;
@@ -70,7 +79,7 @@
   position: relative;
   padding: 10px 15px;
   background-color: #fff;
-  border-radius: 20px;
+  border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   letter-spacing: 0.5px;
@@ -79,6 +88,7 @@
   cursor: pointer;
   box-shadow: var(--main-box-shadow);
   color: var(--border-color);
+  font-family: Rubik;
 }
 
 .landing .container .left .actions .btn.active {

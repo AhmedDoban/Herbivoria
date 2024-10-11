@@ -18,6 +18,7 @@
   margin: 0 0 30px 0;
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
+  text-transform: capitalize;
 }
 .reservation .container .head p {
   position: relative;
@@ -25,6 +26,7 @@
   color: var(--gray-color);
   letter-spacing: 1px;
   padding: 10px 0;
+  text-transform: capitalize;
 }
 .reservation .container .form-container {
   position: relative;
@@ -33,6 +35,16 @@
   align-items: center;
   gap: 15px;
   width: 100%;
+}
+
+.reservation .container .dropDownSlect {
+  position: relative;
+  width: 100%;
+}
+.reservation .container .SelectOptionsMenu {
+  position: relative;
+  padding: 15px;
+  transition: var(--main-transition);
 }
 .reservation .container .left,
 .reservation .container .right {
@@ -44,45 +56,28 @@
   width: 100%;
   transition: var(--main-transition);
 }
-.reservation .container .left .date {
+.reservation .container .date {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #bebebe;
+  flex-direction: column;
   padding: 15px;
   width: 100%;
   border-radius: 5px;
 }
-.reservation .container .left .date p {
+
+.reservation .container .date p {
   position: relative;
   font-size: 15px;
   text-transform: capitalize;
   transition: var(--main-transition);
   color: var(--gray-color);
 }
-.reservation .container .left .date i {
-  cursor: pointer;
-  color: var(--gray-color);
-  transition: var(--main-transition);
-}
-.reservation .container .left .date i.active {
-  color: var(--red-color);
-}
-.reservation .container .left .date .Calender {
-  position: absolute;
-  top: 105%;
-  border-radius: 5px;
-  right: 0;
-  opacity: 0;
-  box-shadow: var(--main-box-shadow);
-  transition: var(--main-transition);
-  z-index: 99;
-}
-.reservation .container .left .date .Calender.active {
-  opacity: 1;
-}
-.reservation .container input {
+
+.reservation .container .left > input {
+  position: relative;
   padding: 15px;
   border: 1px solid #bebebe;
   color: #3d3d3d;
@@ -103,6 +98,9 @@
   opacity: 0;
 }
 .reservation .container input[type="button"] {
+  position: relative;
+  padding: 15px;
+  width: 100%;
   background-color: var(--red-color);
   color: #fff;
   font-size: 18px;
@@ -110,11 +108,11 @@
   outline: none;
   border: none;
   transition: var(--main-transition);
+  border-radius: 5px;
   cursor: pointer;
-  box-shadow: var(--main-box-shadow-red);
 }
 .reservation .container input[type="button"]:hover {
-  background-color: #bf2222;
+  box-shadow: var(--main-box-shadow-red);
 }
 @media (max-width: 992px) {
   .reservation .container .form-container {

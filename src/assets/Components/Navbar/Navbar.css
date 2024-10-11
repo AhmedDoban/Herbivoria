@@ -35,7 +35,7 @@
 .navbar .container .logo h1 {
   position: relative;
   font-weight: bold;
-  color: var(--orange-color);
+  color: var(--purple-color);
   font-size: 23px;
   text-shadow: var(--main-text-shadow);
 }
@@ -67,7 +67,7 @@
 }
 .navbar .container .menu li > a.active,
 .navbar .container .menu li > a:hover {
-  color: var(--orange-color);
+  color: var(--purple-color);
   transition: var(--main-transition);
 }
 .navbar .container .menu li > a::before {
@@ -75,7 +75,7 @@
   content: "";
   width: 0%;
   height: 3px;
-  background-color: var(--orange-color);
+  background-color: var(--purple-color);
   top: 70%;
   transition: var(--main-transition);
 }
@@ -199,7 +199,7 @@
   font-size: 18px;
 }
 .navbar .container .user .logout:hover {
-  color: var(--orange-color);
+  color: var(--purple-color);
 }
 i.nav-mobile {
   display: none;
@@ -211,6 +211,6 @@ i.nav-mobile {
     transition: var(--main-transition);
   }
   i.nav-mobile:hover {
-    color: var(--orange-color);
+    color: var(--purple-color);
   }
 }

@@ -11,7 +11,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 50px;
 }
 
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
@@ -581,42 +581,39 @@
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # menu nav-seemore
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
-.menu-food .container .nav-seemore {
+.menu-food .container .PaginationSection {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  width: 100%;
+  justify-content: center;
   align-items: center;
 }
-.menu-food .container .nav-seemore .nav-Bullets-numbers {
-  position: relative;
+.menu-food .container .PaginationSection .pagination {
   display: flex;
   gap: 10px;
 }
-.menu-food .container .nav-seemore button {
+
+.menu-food .container .PaginationSection .pagination .page-item {
+  position: relative;
   width: 35px;
   height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 0;
-  cursor: pointer;
-  color: var(--white-color);
-  background-color: var(--gray-color);
+  background-color: var(--white-color);
   transition: var(--main-transition);
-  box-shadow: var(--main-box-shadow);
 }
-.menu-food .container .nav-seemore button.active {
+.menu-food .container .PaginationSection .pagination .page-item .page-link {
+  color: var(--red-color);
+}
+
+.menu-food .container .PaginationSection .pagination .page-item.active {
   background-color: var(--red-color);
   box-shadow: var(--main-box-shadow-red);
 }
 
-.menu-food .container .nav-seemore button:hover,
-.menu-food .container .nav-seemore .nav-Bullets-numbers button.active {
-  background-color: var(--red-color);
-  box-shadow: var(--main-box-shadow-red);
+.menu-food .container .pagination .page-item.active .page-link {
+  color: var(--white-color);
 }
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # menu Not Founded

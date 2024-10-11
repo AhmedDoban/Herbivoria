@@ -10,6 +10,7 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Recommendation from "../../Components/Recommendation/Recommendation";
 import Testimonios from "../Home/Testimonios/Testimonios";
+import ResponsivePagination from "react-responsive-pagination";
 
 function Menu({ HandleISInCart, scrollToTop }) {
   const FoodData = useContext(FoodContext);
@@ -24,68 +25,9 @@ function Menu({ HandleISInCart, scrollToTop }) {
   const [Price, SetPrice] = useState([0, 1000]);
   const [Width_length, SetWidth_length] = useState("16.5-25");
   const [Spicy, SetSpicy] = useState(false);
+  const [currentPage, setCurrentPage] = useState(8);
+  const totalPages = 20;
 
-  const HandelNextNavigation = () => {
-    if (
-      FoodType === "" &&
-      Calories[0] === 0 &&
-      Calories[1] === 1000 &&
-      Price[0] === 0 &&
-      Price[1] === 1000 &&
-      Spicy === false
-    ) {
-      if (FoodData.length < SeeMore) {
-        return;
-      }
-      SetBulletNumber(BulletNumber + 1);
-      SetSeeMore(SeeMore + 9);
-      scrollToTop();
-    } else {
-      if (FoodType === "") {
-        if (
-          FoodData.filter(
-            (Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1]
-          )
-            .filter((Food) => Food.price >= Price[0] && Food.price <= Price[1])
-            .filter((Food) => (Spicy ? Food.Spicy : Food)).length <= SeeMore
-        ) {
-          return;
-        }
-      } else if (
-        FoodData.filter((Foods) => Foods.type === FoodType)
-          .filter((Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1])
-          .filter((Food) => Food.price >= Price[0] && Food.price <= Price[1])
-          .filter((Food) => (Spicy ? Food.Spicy : Food)).length <= SeeMore
-      ) {
-        return;
-      }
-      SetBulletNumber(BulletNumber + 1);
-      SetSeeMore(SeeMore + 9);
-      scrollToTop();
-    }
-  };
-  const HandelPreviousNavigation = () => {
-    if (SeeMore <= 0 || SeeMore === 9) {
-      SetBulletNumber(1);
-      SetSeeMore(9);
-      return;
-    }
-    if (BulletNumber === 1) {
-      SetBulletNumber(1);
-    } else {
-      SetBulletNumber(BulletNumber - 1);
-    }
-    SetSeeMore(SeeMore - 9);
-    scrollToTop();
-  };
-  const HandleBulletNumberNavigation = (index) => {
-    SetSeeMore((+index + 1) * 9);
-    if (index === 0) {
-      SetBulletNumber(1);
-      return;
-    }
-    SetBulletNumber(index);
-  };
   const HandleFoodType = (type) => {
     SetFoodType(type);
     SetSeeMore(9);
@@ -227,73 +169,16 @@ function Menu({ HandleISInCart, scrollToTop }) {
               </div>
             )}
           </div>
-          {FoodData.filter((Foods) =>
-            FoodType === "" ? Foods : Foods.type === FoodType
-          )
-            .filter(
-              (Food) => Food.cal >= Calories[0] && Food.cal <= Calories[1]
-            )
-            .filter((Food) => Food.price >= Price[0] && Food.price <= Price[1])
-            .filter((Food) => (Spicy ? Food.Spicy : Food)).length > 0 ? (
-            <div className="nav-seemore">
-              <button
-                onClick={() => HandelPreviousNavigation()}
-                className={SeeMore <= 9 ? "" : "active"}
-              >
-                <i className="fa-solid fa-angle-left"></i>
-              </button>
-              <div className="nav-Bullets-numbers">
-                {Array(
-                  Math.ceil(
-                    FoodData.filter((Foods) =>
-                      FoodType === "" ? Foods : Foods.type === FoodType
-                    )
-                      .filter(
-                        (Food) =>
-                          Food.cal >= Calories[0] && Food.cal <= Calories[1]
-                      )
-                      .filter(
-                        (Food) =>
-                          Food.price >= Price[0] && Food.price <= Price[1]
-                      )
-                      .filter((Food) => (Spicy ? Food.Spicy : Food)).length / 9
-                  )
-                )
-                  .fill(0)
-                  .map((value, index) => (
-                    <button
-                      onClick={() => HandleBulletNumberNavigation(index)}
-                      className={SeeMore === (+index + 1) * 9 ? "active" : ""}
-                    >
-                      {index + 1}
-                    </button>
-                  ))
-                  .slice(BulletNumber - 1, BulletNumber + 2)}
-              </div>
-
-              <button
-                className={
-                  SeeMore >=
-                  FoodData.filter((Foods) =>
-                    FoodType === "" ? Foods : Foods.type === FoodType
-                  )
-                    .filter(
-                      (Food) =>
-                        Food.cal >= Calories[0] && Food.cal <= Calories[1]
-                    )
-                    .filter(
-                      (Food) => Food.price >= Price[0] && Food.price <= Price[1]
-                    )
-                    .filter((Food) => (Spicy ? Food.Spicy : Food)).length
-                    ? ""
-                    : "active"
-                }
-                onClick={() => HandelNextNavigation()}
-              >
-                <i className="fa-solid fa-angle-right"></i>
-              </button>
-            </div>
-          ) : null}
+          <div className="PaginationSection">
+            <ResponsivePagination
+              current={currentPage}
+              total={totalPages}
+              onPageChange={setCurrentPage}
+              maxWidth={20}
+              previousLabel={<i className="fa-solid fa-chevron-left"></i>}
+              nextLabel={<i className="fa-solid fa-chevron-right"></i>}
+            />
+          </div>
         </div>
       </div>
       {/************************** Recommendation *****************************/}

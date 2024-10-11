@@ -29,9 +29,8 @@
 }
 .OurResturant .container h1 {
   position: relative;
-  color: var(--orange-color);
+  color: var(--purple-color);
   font-size: 66px;
-  text-shadow: var(--main-text-shadow-red);
 }
 @media (max-width: 992) {
   .OurResturant .container h1 {

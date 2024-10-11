@@ -3,6 +3,27 @@
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
 @import url("./root.css");
 
+@font-face {
+  font-family: Rubik;
+  src: url("./Font/Rubik-Light.ttf") format(truetype);
+  font-weight: 300;
+}
+@font-face {
+  font-family: Rubik;
+  src: url("./Font/Rubik-Medium.ttf") format(truetype);
+  font-weight: 500;
+}
+@font-face {
+  font-family: Rubik;
+  src: url("./Font/Rubik-Regular.ttf") format(truetype);
+  font-weight: 400;
+}
+@font-face {
+  font-family: Rubik;
+  src: url("./Font/Rubik-SemiBold.ttf") format(truetype);
+  font-weight: 600;
+}
+
 /*ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ
 # General
 ــــــــــــــــــــــــــــــــــــــــــــــــــــــــــــ*/
@@ -13,8 +34,8 @@
 }
 
 body {
-  font-family: "Open Sans", sans-serif;
   color: var(--main-color);
+  font-family: Rubik;
 }
 .pages {
   position: relative;
@@ -32,6 +53,7 @@ html {
 a {
   color: var(--main-color);
   text-decoration: none;
+  font-family: Rubik;
 }
 
 a:hover {
@@ -48,7 +70,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Raleway", sans-serif;
   margin: 0;
 }
 ::-webkit-scrollbar {

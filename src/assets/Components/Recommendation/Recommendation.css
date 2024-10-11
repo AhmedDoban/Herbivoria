@@ -23,7 +23,7 @@
 }
 .Recommendation .container .head h1 {
   position: relative;
-
+  text-transform: capitalize;
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
 }
@@ -32,6 +32,7 @@
   font-weight: bold;
   color: var(--gray-color);
   letter-spacing: 1px;
+  text-transform: capitalize;
 }
 .Recommendation .container .head .actions {
   position: relative;

@@ -11,8 +11,7 @@ function Footer() {
         <div className="container">
           <div className="box">
             <div className="head">
-              <img src={require("../../imgs/icon.png")} alt="logo" />
-              Herbivoria
+              <img src={require("../../imgs/Logo.png")} alt="logo" />
             </div>
             <div className="content-box">
               <a href="tel:+20 1111111111" className="contact">

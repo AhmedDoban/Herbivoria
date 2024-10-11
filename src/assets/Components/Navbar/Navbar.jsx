@@ -19,8 +19,7 @@ function Navbar({ scrollToTop, HandleLogout }) {
         <div className="container">
           {/********** Start Logo Container *************/}
           <Link className="logo" to="/" onClick={() => scrollToTop()}>
-            <img src={require("../../imgs/icon.png")} alt="logo" />
-            <h1>Herbivoria</h1>
+            <img src={require("../../imgs/Logo.png")} alt="logo" />
           </Link>
           {/********** End Logo Container *************/}
 

@@ -24,12 +24,14 @@
   position: relative;
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
+  text-transform: capitalize;
 }
 .OurChefs .container .head p {
   position: relative;
   font-weight: bold;
   color: var(--gray-color);
   letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
 .OurChefs .container .content {

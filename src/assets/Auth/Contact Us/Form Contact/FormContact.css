@@ -18,6 +18,7 @@
   margin: 0 0 30px 0;
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
+  text-transform: capitalize;
 }
 .formcontact .container .head p {
   position: relative;
@@ -25,6 +26,7 @@
   color: var(--gray-color);
   letter-spacing: 1px;
   padding: 10px 0;
+  text-transform: capitalize;
 }
 .formcontact .container .form-container {
   position: relative;

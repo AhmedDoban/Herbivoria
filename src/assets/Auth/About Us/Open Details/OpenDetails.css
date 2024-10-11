@@ -26,12 +26,14 @@
   position: relative;
   color: var(--red-color);
   text-shadow: var(--main-text-shadow-red);
+  text-transform: capitalize;
 }
 .OpenDetails .container .head p {
   position: relative;
   font-weight: bold;
   color: var(--gray-color);
   letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
 .OpenDetails .card ul {
@@ -61,7 +63,6 @@
   position: relative;
   color: var(--gray-color);
   transition: var(--main-transition);
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 .OpenDetails .card ul li.active span {
   color: var(--red-color);
