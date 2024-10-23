@@ -34,6 +34,7 @@
     "redux": "^5.0.1",
     "styled-components": "^5.3.11",
     "swiper": "^10.1.0",
+    "sweetalert2": "^11.14.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

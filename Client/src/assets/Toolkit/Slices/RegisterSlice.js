@@ -3,7 +3,7 @@ import axios from "axios";
 import Toast_Handelar from "../../Components/Toast_Handelar";
 
 export const HandleRegister = createAsyncThunk(
-  "Register",
+  "HandleRegister",
   async (USER, { rejectWithValue }) => {
     try {
       const Data = await axios.post(
@@ -15,7 +15,7 @@ export const HandleRegister = createAsyncThunk(
           LastName: USER.LastName,
           Gender: USER.Gender,
           Mobile: USER.Mobile,
-        }
+        },
       );
       return Data.data;
     } catch (err) {
